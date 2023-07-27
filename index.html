@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesHomepage.css">
+    <title>Homepage</title>
+</head>
+<body>
+    <div id = "header">
+        <img id ="logo" src="images\LOGO.png" alt="JU Logo">
+        <h1 id ="title">Outcome Based Education System</h1>
+        <button class="header-button" id="login" onclick="window.open('Login.html', '_blank')">Log In</button>
+        <button class="header-button" id="signUp">Sign Up</button>
+        <ul id="dropdown-menu">
+            <li id="drop-down-1" onclick="window.open('SignUpAsTeacher.html', '_blank')">Sign Up as Teacher</li>
+            <!--<li id="drop-down-2">Option 2</li>
+            <li id="drop-down-3">Option 3</li>-->
+        </ul>
+        <script>
+            const signUp = document.getElementById('signUp');
+            const dropdownMenu = document.getElementById('dropdown-menu');
+          
+            signUp.addEventListener('click', function() {
+                if(dropdownMenu.style.display === 'block')
+                {
+                    dropdownMenu.style.display= 'none';
+                }
+                else
+                {
+                    dropdownMenu.style.display= 'block';
+                }
+            });
+          
+            window.addEventListener('click', function(event) {
+              if (!event.target.matches('#signUp') && !event.target.matches('#dropdown-menu')) {
+                dropdownMenu.style.display = 'none';
+              }
+            });
+        </script>
+    </div>
+    
+    <div id="image"></div>
+    <div id="quote">
+        <strong>
+            A large part of what we call teaching is that the teacher should be
+     able to use education to reorganize a child's thoughts, attitudes and feelings.
+        </strong><br>
+    - <em>Benjamin Bloom</em>
+    </div>
+    <div id="footer">
+        <hr class="line"></hr>
+        Jahangirnagar University, Savar, Dhaka-1342. Telephone: PABX:02224491045-51,
+        <br>Fax:02224491952
+    </div>
+</body>
+</html>

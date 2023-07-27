@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesLogin.css">
+    <title>Log-in</title>
+</head>
+<body>
+    <div id = "header">
+        <img id ="logo" src="images\LOGO.png" alt="JU Logo">
+        <h1 id ="title">Log-in</h1>
+    </div>
+    
+    <form id="login-form">
+        <label class="text" for="email">Enter e-mail: </label>
+        <input type="email" id="email" name="email" placeholder="example@gmail.com" required><br>
+        <label class="text" for="password">Enter password: </label>
+        <input type="password" id="password" name="password" required><br>
+
+        <label class="text">Login as: </label><br>
+        <input type="radio" name="login-type" value="teacher" id="teacher" checked>
+        <label class="text-login-type" for="teacher">Teacher</label><br>
+        <input type="radio" name="login-type" value="department">
+        <label class="text-login-type" for="department">Department</label><br>
+        <input type="radio" name="login-type" value="examControllerOffice">
+        <label class="text-login-type" for="examControllerOffice">Exam Controller Office</label><br>
+
+        <button type="reset" class="buttons" id="reset">Reset</button>
+        <button type="submit" class="buttons" id="submit">Submit</button>
+    </form>
+    <div id="footer">
+        <hr class="line"></hr>
+        Jahangirnagar University, Savar, Dhaka-1342. Telephone: PABX:02224491045-51,
+        <br>Fax:02224491952
+    </div>
+</body>
+</html>
