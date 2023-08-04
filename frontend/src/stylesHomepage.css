@@ -1,0 +1,112 @@
+body{
+    border: 5px solid blue;
+    border-radius : 6px;
+    margin:0px;
+}
+#header{
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    height: 120px;
+    background-image: linear-gradient(rgb(132, 151, 227), rgb(67, 99, 224), rgb(21, 61, 214));
+    padding-bottom: 40px;
+    
+}
+
+#dropdown-menu {
+    display: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: white;
+    border: 1px solid blue;
+    position: absolute;
+    right: 1%;
+    top: 100px;
+    color:blue;
+}
+  
+#dropdown-menu li {
+    padding: 8px 12px;
+    cursor: pointer;
+    border: 1px solid rgb(67, 99, 224);
+}
+  
+#dropdown-menu li:hover {
+    background-color: #ddd;
+}
+
+
+#logo{
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    margin-top: 0px;
+    margin-left: 37%;
+}
+
+#title{
+    margin-right: 16%;
+    color: white;
+}
+
+.header-button{
+    justify-content: flex-end;
+    color: blue;
+    margin-bottom: 30px;
+    width: 100px;
+    height: 50px;
+    border: 4px solid blue;
+    background-color: rgb(132, 151, 227);
+    color:white;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.header-button:hover{
+    background-color: rgb(89, 89, 187);
+}
+
+
+#signUp{
+    margin-left: 20px;
+}
+
+#image{
+    background: url('bloomsTaxonomy.jpg') no-repeat center center;
+    width:100%;
+    height:65vh;
+}
+#quote{
+    width: 100%;
+    height: 10vh;
+    text-align: center;
+    padding-top: 10px;
+    font-family: Arial;
+    font-size: 25px;
+    color: blue;
+}
+
+#footer{
+    width: 100%;
+    height: 10vh;
+    text-align: center;
+    color: grey;
+}
+
+hr{
+    width: 90%;
+}
+@media screen and (max-width: 990px) {
+   
+    #title{
+        font-size:22px;
+    }
+    #quote{
+        width: 100%;
+        height: 10vh;
+        font-size: 20px;
+    }
+  }
+ 
