@@ -1,8 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './stylesHomepage.css';
 import LOGO from './LOGO.png';
 
 function Home() {
+
+  const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+
   return (
     <div>
       <div id="header">
@@ -11,9 +14,22 @@ function Home() {
         <button className="header-button" id="login" onClick={() => window.open('/Login', '_blank')}>
           Log In
         </button>
-        <button className="header-button" id="signUp" onClick={() => window.open('/SignUpAsTeacher', '_blank')}>
+        <button className="header-button" id="signUp" onClick={() => {
+            setIsDropdownVisible((prev) => !prev);
+            console.log(isDropdownVisible);
+        }}>
           Sign Up
         </button>
+        {
+        isDropdownVisible && (
+          <ul id="dropdown-menu">
+            <li id="drop-down-1" onClick={() => window.open('/SignUpAsTeacher', '_blank')}>
+              Sign Up as Teacher
+            </li>
+            <li id="drop-down-2">Option 2</li>
+            <li id="drop-down-3">Option 3</li>
+          </ul>
+        )}
       </div>
       <div id="image"></div>
       <div id="quote">

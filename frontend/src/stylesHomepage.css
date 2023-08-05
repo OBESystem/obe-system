@@ -14,12 +14,13 @@ body{
 }
 
 #dropdown-menu {
-    display: none;
+    display: block;
     list-style: none;
     padding: 0;
     margin: 0;
     background-color: white;
     border: 1px solid blue;
+    border-radius: 10px;
     position: absolute;
     right: 1%;
     top: 100px;
@@ -34,6 +35,7 @@ body{
   
 #dropdown-menu li:hover {
     background-color: #ddd;
+    border-radius: 10px;
 }
 
 
