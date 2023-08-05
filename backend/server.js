@@ -32,9 +32,14 @@ app.post('/SignUpAsTeacher', (req, res)=> {
 })
 
 app.post('/Login', (req, res)=> {
-    const sql = "SELECT * FROM teachers WHERE `email` = ?";
-
-    db.query(sql, [req.body.email,], (err, data)=> {
+    
+    var type = JSON.stringify(req.body.loginType);
+    var l = type.length;
+    type = type.slice(2, l -2);
+    if(type === "teacher")
+    {
+        const sql = "SELECT * FROM teachers WHERE `email` = ?";
+        db.query(sql, [req.body.email,], (err, data)=> {
         if(err){
             return res.json("Error");
         }
@@ -56,7 +61,8 @@ app.post('/Login', (req, res)=> {
                 return res.json("Incorrect password!!");
             }
         }
-    })
+       })
+    }
 })
 
 app.listen(7000, ()=> {
