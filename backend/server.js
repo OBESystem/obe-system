@@ -31,6 +31,34 @@ app.post('/SignUpAsTeacher', (req, res)=> {
     })
 })
 
+app.post('/Login', (req, res)=> {
+    const sql = "SELECT * FROM teachers WHERE `email` = ?";
+
+    db.query(sql, [req.body.email,], (err, data)=> {
+        if(err){
+            return res.json("Error");
+        }
+        if(data.length == 0)
+        {
+            return res.json("Incorrect email!!");
+        }
+        else
+        {
+            var str = JSON.stringify(req.body.password);
+            var len = str.length;
+            str = str.slice(2, len -2);
+            if(data[0].password === str)
+            {
+                return res.json("Successful..");
+            }
+            else
+            {
+                return res.json("Incorrect password!!");
+            }
+        }
+    })
+})
+
 app.listen(7000, ()=> {
     console.log("Listening..");
 })
