@@ -21,15 +21,8 @@ function Login() {
     }
 
    return (
-    <html lang="en">
-      <head>
-        <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" type="text/css" href="stylesLogin.css" />
-        <title>Log-in</title>
-      </head>
-      <body>
-        <div id="header">
+    <div>
+       <div id="header">
           <img id="logo" src={LOGO} alt="JU Logo" />
           <h1 id="title">Log-in</h1>
         </div>
@@ -47,7 +40,7 @@ function Login() {
           {errors.password && <label className="err">{errors.password}</label>}<br/>
 
           <label className="text">Login as: </label><br />
-          <input type="radio" name="login-type" value="teacher" id="teacher" checked />
+          <input type="radio" name="login-type" value="teacher" id="teacher" onChange={handleInput}/>
           <label className="text-login-type" htmlFor="teacher">
             Teacher
           </label><br />
@@ -73,8 +66,7 @@ function Login() {
           <br />
           Fax:02224491952
         </div>
-      </body>
-    </html>
+    </div>
   );
 }
 
