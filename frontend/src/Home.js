@@ -7,8 +7,8 @@ function Home() {
     <div id="bdy">
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
-          <img className="navbar-brand" id="logo" src={LOGO} alt="Logo" />
-          <h1 className="navbar-brand" id="title">Outcome Based Education System</h1>
+          <img className="navbar-brand-center" id="logo" src={LOGO} alt="Logo" />
+          <h1 className="navbar-brand-center" id="title">Outcome Based Education System</h1>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>

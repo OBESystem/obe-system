@@ -1,6 +1,4 @@
-body{
-    border: 5px solid blue;
-}
+
 .navbar{
     height: 150px !important;
     background-image: linear-gradient(rgb(132, 151, 227), rgb(67, 99, 224), rgb(21, 61, 214));
@@ -34,13 +32,15 @@ body{
 
 
 #logo{
+    margin-right: auto !important;
+    margin-left: 15px !important;
     width: 100px;
     height: 100px;
     display: inline-block;
 }
 
 #title{
-    color: rgb(212, 213, 230);
+    color: rgb(212, 213, 230) !important;
 }
 
 .header-button{
@@ -102,5 +102,8 @@ body{
     .header-button{
         width: 200px;
         height: 50px;
+    }
+    #title{
+        margin-right: auto !important;
     }
 }
