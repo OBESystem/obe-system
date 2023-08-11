@@ -36,59 +36,96 @@ const handleSubmit=(event) => {
 
   return (
     <div>
-      <div id="header">
-          <img id="logo" src={LOGO} alt="JU Logo" />
-          <h1 id="title">Sign Up As Teacher</h1>
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <div className="container-fluid">
+          <img className="navbar-brand" id="logo1" src={LOGO} alt="Logo" />
+          <h1 className="navbar-brand-center" id="title">Sign up as Teacher</h1>
         </div>
-        <form id="signUp-form" action="" onSubmit={handleSubmit}>
-          <label className="text" htmlFor="name">
-            Enter name:
-          </label>
-          <input type="text" id="name" name="name" onChange={handleInput}/><br />
-          {errors.name && <label className="err">{errors.name}</label>}<br/>
-
-          <label className="text" htmlFor="dept">
-            Enter department:
-          </label>
-          <input type="text" id="dept" name="dept" onChange={handleInput}/><br />
-          {errors.dept && <label className="err">{errors.dept}</label>}<br/>
-
-          <label className="text" htmlFor="id">
-            Enter Identification ID:
-          </label>
-          <input type="text" id="id" name="id" onChange={handleInput}/><br />
-          {errors.id && <label className="err">{errors.id}</label>}<br/>
-          <label className="text" htmlFor="email">
-            Enter e-mail:
-          </label>
-          <input type="text" id="email" name="email" placeholder="example@gmail.com" onChange={handleInput}/><br />
-          {errors.email && <label className="err">{errors.email}</label>}<br/>
+      </nav>
+      
+      <div className="container-fluid">
+        
+      <div className="row">
+          <div className="col-3"></div>
           
-          <label className="text" htmlFor="password">
-            Enter password:
-          </label>
-          <input type="password" id="password" name="password" onChange={handleInput}/><br />
-          {errors.password && <label className="err">{errors.password}</label>}<br/>
+          <div className="col-6">
+          <form id="signUp-form" action="" onSubmit={handleSubmit}>
+            
+              <div className="row">
+                <div className="col-3"></div>
+                <div className="col-6">
+                <div className="row" id="inpt1">
+                  <div className="col-5 text-left">
+                    <label htmlFor="name">Enter name:</label>
+                  </div>
+                  <div className="col-7">
+                    <input type="text" id="name" name="name" onChange={handleInput}/>
+                  </div>
+                  {errors.name && <label className="err">{errors.name}</label>}
+                </div>
+                <div className="row" id="inpt2">
+                  <div className="col-5 text-left">
+                    <label htmlFor="dept">Enter department:</label>
+                  </div>
+                  <div className="col-7">
+                  <input type="text" id="dept" name="dept" onChange={handleInput}/><br />
+                  </div>
+                  {errors.dept && <label className="err">{errors.dept}</label>}
+                </div>
+                <div className="row" id="inpt3">
+                  <div className="col-5 text-left">
+                    <label htmlFor="id">Enter Identification ID:</label>
+                  </div>
+                  <div className="col-7">
+                    <input type="text" id="id" name="id" onChange={handleInput}/><br />
+                  </div>
+                  {errors.id && <label className="err">{errors.id}</label>}
+                </div>
+                <div className="row" id="inpt4">
+                  <div className="col-5 text-left">
+                    <label htmlFor="email">Enter e-mail:</label>
+                  </div>
+                  <div className="col-7">
+                    <input type="text" id="email" name="email" placeholder="example@gmail.com" onChange={handleInput}/><br />
+                  </div>
+                  {errors.email && <label className="err">{errors.email}</label>}
+                </div>
+                <div className="row" id="inpt5">
+                  <div className="col-5 text-left">
+                    <label htmlFor="password">Enter password:</label>
+                  </div>
+                  <div className="col-7"><input type="password" id="password" name="password" onChange={handleInput}/><br /></div>
+                  {errors.password && <label className="err">{errors.password}</label>}
+                </div>
+                <div className="row" id="inpt6">
+                  <div className="col-5 text-left">
+                    <label htmlFor="confirmPassword">Confirm password:</label>
+                  </div>
+                  <div className="col-7"><input type="password" id="confirmPassword" name="confirmPassword" onChange={handleInput}/><br /></div>
+                  {errors.confirmPassword && <label className="err">{errors.confirmPassword}</label>}
+                </div>
+                <div className="row bn">
+                  <div className="col-6 text-center"><button type="reset" class="buttons" id="reset">Reset</button></div>
+                  <div className="col-6 text-center"><button type="submit" class="buttons" id="submit">Submit</button></div>
+                </div>
+            </div>
+                <div className="col-3"></div>
+              </div>
+            </form>
+          </div>
 
-          <label className="text" htmlFor="confirmPassword">
-            Confirm password:
-          </label>
-          <input type="password" id="confirmPassword" name="confirmPassword" onChange={handleInput}/><br />
-          {errors.confirmPassword && <label className="err">{errors.confirmPassword}</label>}<br/>
-
-          <button type="reset" className="buttons" id="reset">
-            Reset
-          </button>
-          <button type="submit" className="buttons" id="submit">
-            Submit
-          </button>
-        </form>
-        <div id="footer">
-          <hr className="line" />
-          Jahangirnagar University, Savar, Dhaka-1342. Telephone: PABX:02224491045-51,
-          <br />
-          Fax:02224491952
+          <div className="col-3"></div>
         </div>
+
+        <div className="row" id="footer">
+          <div className="col-1"></div>
+          <div className="col-10">
+              <div id="line"></div>
+              Jahangirnagar University, Savar, Dhaka-1342. Telephone: PABX:02224491045-51,<br />Fax:02224491952
+          </div>
+          <div className="col-1"></div>
+        </div>
+      </div>
     </div>
   );
 }
