@@ -1,0 +1,23 @@
+.list-group a:hover{
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+}
+
+.cnt{
+    background-color: rgb(78, 103, 212);
+}
+
+
+.sBar{
+    background-color: rgb(78, 103, 212);
+}
+
+.largeIcon{
+    font-size: 8rem !important;
+    color: rgb(51, 51, 207);
+}
+
+.nv{
+    background-color: transparent !important;
+}

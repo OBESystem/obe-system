@@ -1,21 +1,9 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Nav from './Nav';
-import Sidebar from './Sidebar';
-import './stylesTDB.css';
 
-function TeacherDashboard() {
-  const [toggle, setToggle] = useState(true);
-  const Toggle = () =>{
-    setToggle(!toggle)
-  }
+function Home({Toggle}) {
   return (
-    <div className="container-fluid bg-secondary min-vh-100">
-      <div className="row cnt">
-        {toggle && <div className="col-4 col-md-2 bg-white vh-100">
-          <Sidebar />
-        </div>}
-        <div className="col">
-        <div className="px-3">
+    <div className="px-3">
         <Nav Toggle={Toggle}/>
         <div className="container-fluid">
             <div className="row g-3 my-2">
@@ -40,10 +28,7 @@ function TeacherDashboard() {
             </div>
         </div>
     </div>
-        </div>
-      </div>
-    </div>
   )
 }
 
-export default TeacherDashboard;
+export default Home

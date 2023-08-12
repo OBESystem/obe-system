@@ -1,8 +1,8 @@
-body{
+#lgIn{
     border: 6px solid blue;
     margin:0px;
 }
-.navbar{
+.nv1{
     height: 150px !important;
     background-image: linear-gradient(rgb(132, 151, 227), rgb(67, 99, 224), rgb(21, 61, 214));
 }

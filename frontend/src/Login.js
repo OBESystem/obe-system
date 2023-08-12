@@ -51,8 +51,8 @@ function Login() {
     }
 
    return (
-    <div>
-       <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <div id="lgIn">
+       <nav className="navbar navbar-expand-lg navbar-light bg-light nv1">
         <div className="container-fluid">
           <img className="navbar-brand" id="logo1" src={LOGO} alt="Logo" />
           <h1 className="navbar-brand-center" id="title">Log-in</h1>

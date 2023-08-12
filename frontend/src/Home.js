@@ -4,8 +4,8 @@ import LOGO from './LOGO.png';
 
 function Home() {
   return (
-    <div id="bdy">
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <div id="hp">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light nv1">
         <div className="container-fluid">
           <img className="navbar-brand-center" id="logo" src={LOGO} alt="Logo" />
           <h1 className="navbar-brand-center" id="title">Outcome Based Education System</h1>
