@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 05, 2023 at 06:52 PM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Generation Time: Aug 12, 2023 at 02:37 PM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,8 +29,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `teachers` (
   `name` varchar(50) NOT NULL,
-  `department` varchar(50) NOT NULL,
   `t_id` int(50) NOT NULL,
+  `department` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -39,10 +39,10 @@ CREATE TABLE `teachers` (
 -- Dumping data for table `teachers`
 --
 
-INSERT INTO `teachers` (`name`, `department`, `t_id`, `email`, `password`) VALUES
-('abcd', 'CSE', 1, 'abcd@gmail.com', 'abcd'),
-('defg', 'CSE', 2, 'defg@gmail.com', 'defg'),
-('Subarna Saha', 'CSE', 55, 'abcd@gmail.com', 'aaaa1111');
+INSERT INTO `teachers` (`name`, `t_id`, `department`, `email`, `password`) VALUES
+('abcd', 1, 'CSE', 'abcd@gamil.com', 'abcd'),
+('defg', 2, 'IIT', 'defg@gmail.com', 'defg'),
+('subarna', 111111, 'CSE', 'subarna@gmail.com', 'aaaa1111');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
