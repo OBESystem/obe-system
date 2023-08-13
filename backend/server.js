@@ -26,6 +26,20 @@ app.get('/TeacherDashboard', (req, res) => {
     })
 })
 
+app.get('/TeacherInfo', (req, res) => {
+    const sql = "SELECT * FROM coursetable WHERE `t_id` = ?";
+    const values = [req.query.id];
+
+    db.query(sql, [values], (err, result)=> {
+        if(err)
+        {
+            return res.json("Error..");
+        }
+        console.log(req.query.id);
+        return res.json(result);
+    })
+})
+
 app.post('/SignUpAsTeacher', (req, res)=> {
     const sql = "INSERT INTO teachers (`name`, `department`, `t_id`, `email`, `password`) values (?)";
     const values = [
