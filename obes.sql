@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 12, 2023 at 02:37 PM
+-- Generation Time: Aug 13, 2023 at 05:49 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -20,6 +20,29 @@ SET time_zone = "+00:00";
 --
 -- Database: `obes`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `coursetable`
+--
+
+CREATE TABLE `coursetable` (
+  `t_id` varchar(50) NOT NULL,
+  `courseName` varchar(50) NOT NULL,
+  `courseCode` varchar(50) NOT NULL,
+  `year` varchar(10) NOT NULL,
+  `semester` varchar(10) NOT NULL,
+  `credit` int(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `coursetable`
+--
+
+INSERT INTO `coursetable` (`t_id`, `courseName`, `courseCode`, `year`, `semester`, `credit`) VALUES
+('3', 'Data Structures', 'CSE-152', '1st', '2nd', 3),
+('3', 'Numerical Method Laboratory', 'CSE-207', '2nd', '1st', 1);
 
 -- --------------------------------------------------------
 
@@ -42,7 +65,7 @@ CREATE TABLE `teachers` (
 INSERT INTO `teachers` (`name`, `t_id`, `department`, `email`, `password`) VALUES
 ('abcd', 1, 'CSE', 'abcd@gamil.com', 'abcd'),
 ('defg', 2, 'IIT', 'defg@gmail.com', 'defg'),
-('subarna', 111111, 'CSE', 'subarna@gmail.com', 'aaaa1111');
+('subarna', 3, 'CSE', 'subarna@gmail.com', 'aaaa1111');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
