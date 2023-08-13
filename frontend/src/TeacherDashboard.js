@@ -1,22 +1,39 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
+import { useLocation } from 'react-router-dom';
+import axios from 'axios';
 import Nav from './Nav';
 import Sidebar from './Sidebar';
 import './stylesTDB.css';
 
 function TeacherDashboard() {
+  const location = useLocation();
+  const yourData = location.state ? location.state.yourData : null;
   const [toggle, setToggle] = useState(true);
   const Toggle = () =>{
     setToggle(!toggle)
   }
+
+  const [data, setData] = useState([]);
+  useEffect(()=> {
+    axios.get('http://localhost:7000/TeacherDashboard', { params: { email: yourData.email } })
+    .then(res =>{
+      setData(res.data);
+      console.log(yourData.email);
+      console.log(res.data);
+    })
+    .catch(err => console.log(err));
+  }, [])
+
+  console.log();
   return (
     <div className="container-fluid bg-secondary min-vh-100">
       <div className="row cnt">
         {toggle && <div className="col-4 col-md-2 bg-white vh-100 sBar">
-          <Sidebar />
+          <Sidebar name={data.map((teacher, index) => (teacher.name))} dept={data.map((teacher, index) => (teacher.department))}/>
         </div>}
         <div className="col">
         <div className="px-3">
-        <Nav Toggle={Toggle}/>
+        <Nav Toggle={Toggle} name={data.map((teacher, index) => (teacher.name))}/>
         <div className="container-fluid">
             <div className="row g-3 my-2">
                 <div className="col-md-3 p-1">

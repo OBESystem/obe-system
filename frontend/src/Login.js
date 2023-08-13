@@ -38,7 +38,7 @@ function Login() {
             else if(res.data === "Successful..")
             {
               alert("Successful....");
-              navigate('/TeacherDashboard');
+              navigate('/TeacherDashboard', { state: { yourData: values } });
             }
             else
             {
