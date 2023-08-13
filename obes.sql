@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 13, 2023 at 05:49 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.12
+-- Generation Time: Aug 13, 2023 at 08:41 PM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,6 +31,7 @@ CREATE TABLE `coursetable` (
   `t_id` varchar(50) NOT NULL,
   `courseName` varchar(50) NOT NULL,
   `courseCode` varchar(50) NOT NULL,
+  `courseType` varchar(50) NOT NULL,
   `year` varchar(10) NOT NULL,
   `semester` varchar(10) NOT NULL,
   `credit` int(20) NOT NULL
@@ -40,9 +41,9 @@ CREATE TABLE `coursetable` (
 -- Dumping data for table `coursetable`
 --
 
-INSERT INTO `coursetable` (`t_id`, `courseName`, `courseCode`, `year`, `semester`, `credit`) VALUES
-('3', 'Data Structures', 'CSE-152', '1st', '2nd', 3),
-('3', 'Numerical Method Laboratory', 'CSE-207', '2nd', '1st', 1);
+INSERT INTO `coursetable` (`t_id`, `courseName`, `courseCode`, `courseType`, `year`, `semester`, `credit`) VALUES
+('3', 'Data Structures', 'CSE-152', 'Theory', '1st', '2nd', 3),
+('3', 'Numerical Method Laboratory', 'CSE-207', 'Lab', '2nd', '1st', 1);
 
 -- --------------------------------------------------------
 
