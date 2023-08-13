@@ -24,6 +24,19 @@ function TeacherDashboard() {
     .catch(err => console.log(err));
   }, [])
 
+  //const id =data[0].id;
+  const id =3;
+  const [info, setInfo] = useState([]);
+  useEffect(()=> {
+    axios.get('http://localhost:7000/TeacherInfo', { params: { id: id } })
+    .then(res =>{
+      setInfo(res.data);
+      console.log("Infooooooo "+ id);
+      console.log(res.data);
+    })
+    .catch(err => console.log(err));
+  }, [])
+
   console.log();
   return (
     <div className="container-fluid bg-secondary min-vh-100">
@@ -56,12 +69,16 @@ function TeacherDashboard() {
                 </div>
             </div>
             <div className="row g-3 my-2">
+              <button className="btn btn-primary btn-outline-light btn-lg lButton">Show the list of Courses</button>
+            </div>
+            <div className="row g-3 my-2">
             <strong><span className="fs-3">List of courses:</span></strong>
             <table className="table table-responsive-sm table-striped table-bordered bg-white text-center">
               <thead>
                 <tr>
                   <th scope="col">#</th>
                   <th scope="col">Course Name</th>
+                  <th scope="col">Course Code</th>
                   <th scope="col">Year</th>
                   <th scope="col">Semester</th>
                   <th scope="col">Course type</th>
@@ -72,6 +89,7 @@ function TeacherDashboard() {
                 <tr>
                   <th scope="row">1</th>
                     <td>Data Structures</td>
+                    <td>CSE-152</td>
                     <td>1st</td>
                     <td>2nd</td>
                     <td>Theory</td>
@@ -80,6 +98,7 @@ function TeacherDashboard() {
                 <tr>
                   <th scope="row">2</th>
                     <td>Numerical Method Laboratory</td>
+                    <td>CSE-209</td>
                     <td>2nd</td>
                     <td>1st</td>
                     <td>Lab</td>
