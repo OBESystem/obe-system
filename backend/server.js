@@ -13,6 +13,19 @@ const db = mysql.createConnection({
     database: "obes"
 })
 
+app.get('/TeacherDashboard', (req, res) => {
+    const sql = "SELECT * FROM teachers WHERE `email` = ?";
+    const values = [req.query.email];
+
+    db.query(sql, [values], (err, result)=> {
+        if(err)
+        {
+            return res.json("Error..");
+        }
+        return res.json(result);
+    })
+})
+
 app.post('/SignUpAsTeacher', (req, res)=> {
     const sql = "INSERT INTO teachers (`name`, `department`, `t_id`, `email`, `password`) values (?)";
     const values = [
