@@ -9,6 +9,7 @@ function TeacherDashboard() {
   const location = useLocation();
   const yourData = location.state ? location.state.yourData : null;
   const [toggle, setToggle] = useState(true);
+  const [showCourseList, setShowCourseList] = useState(false);
   const Toggle = () =>{
     setToggle(!toggle)
   }
@@ -18,24 +19,24 @@ function TeacherDashboard() {
     axios.get('http://localhost:7000/TeacherDashboard', { params: { email: yourData.email } })
     .then(res =>{
       setData(res.data);
-      console.log(yourData.email);
-      console.log(res.data);
+      //console.log(yourData.email);
+      //console.log(res.data);
     })
     .catch(err => console.log(err));
   }, [])
 
-  //const id =data[0].id;
-  const id =3;
   const [info, setInfo] = useState([]);
-  useEffect(()=> {
+
+  const GetInfo=(event) => {
+    const id =data[0].t_id;
     axios.get('http://localhost:7000/TeacherInfo', { params: { id: id } })
     .then(res =>{
       setInfo(res.data);
-      console.log("Infooooooo "+ id);
-      console.log(res.data);
+      //console.log("Info of "+ id);
+      //console.log(res.data);
     })
     .catch(err => console.log(err));
-  }, [])
+  }
 
   console.log();
   return (
@@ -69,9 +70,13 @@ function TeacherDashboard() {
                 </div>
             </div>
             <div className="row g-3 my-2">
-              <button className="btn btn-primary btn-outline-light btn-lg lButton">Show the list of Courses</button>
+              <button className="btn btn-primary btn-outline-light btn-lg lButton" 
+              onClick={() => {
+                setShowCourseList(!showCourseList);
+                GetInfo();
+              }}>Show the list of Courses</button>
             </div>
-            <div className="row g-3 my-2">
+            {showCourseList && (<div className="row g-3 my-2">
             <strong><span className="fs-3">List of courses:</span></strong>
             <table className="table table-responsive-sm table-striped table-bordered bg-white text-center">
               <thead>
@@ -86,27 +91,22 @@ function TeacherDashboard() {
                 </tr>
               </thead>
               <tbody>
+              {info.slice(0, info.length).map((course,index) => {
+              return (
                 <tr>
-                  <th scope="row">1</th>
-                    <td>Data Structures</td>
-                    <td>CSE-152</td>
-                    <td>1st</td>
-                    <td>2nd</td>
-                    <td>Theory</td>
-                    <td>3</td>
+                    <td>{index+1}</td>
+                    <td>{course.courseName}</td>
+                    <td>{course.courseCode}</td>
+                    <td>{course.year}</td>
+                    <td>{course.semester}</td>
+                    <td>{course.courseType}</td>
+                    <td>{course.credit}</td>
                 </tr>
-                <tr>
-                  <th scope="row">2</th>
-                    <td>Numerical Method Laboratory</td>
-                    <td>CSE-209</td>
-                    <td>2nd</td>
-                    <td>1st</td>
-                    <td>Lab</td>
-                    <td>1</td>
-                </tr>
+              );
+              })}
               </tbody>
             </table>
-            </div>
+            </div>)}
         </div>
     </div>
         </div>
