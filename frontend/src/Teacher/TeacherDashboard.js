@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Nav from './Nav';
 import Sidebar from './Sidebar';
@@ -20,6 +21,17 @@ function TeacherDashboard() {
     const storedAuth = localStorage.getItem('auth');
     if (storedAuth === 'true') {
       setAuth(true);
+      axios.get('http://localhost:7000/TeacherDashboard')
+      .then(res => {
+        if(res.data.Status === "Success")
+        {
+          setAuth(true);
+          localStorage.setItem('auth', 'true');
+          setName(res.data.name);
+          setId(res.data.id);
+          setDept(res.data.dept);
+        }
+      })
     }
     else
     {
@@ -52,8 +64,12 @@ function TeacherDashboard() {
     })
     .catch(err => console.log(err));
   }
+  const navigate = useNavigate();
+  //Reloading removes the user data
 
-  console.log();
+  const EnterCF=(index) => {
+    navigate('/Enter-Course-File', { state: { courseData: info[index] } });
+  }
   return (
     <div className="container-fluid">
       {
@@ -106,6 +122,7 @@ function TeacherDashboard() {
                             <th scope="col">Semester</th>
                             <th scope="col">Course type</th>
                             <th scope="col">Credit</th>
+                            <th scope="col">Link</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -119,6 +136,7 @@ function TeacherDashboard() {
                               <td>{course.semester}</td>
                               <td>{course.courseType}</td>
                               <td>{course.credit}</td>
+                              <td><button className="btn btn-secondary btn-outline-light" onClick={() => EnterCF(index)}>Course File</button></td>
                           </tr>
                         );
                         })}
