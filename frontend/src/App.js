@@ -1,8 +1,9 @@
 import React from 'react';
 import Login from './Login';
 import Home from './Home';
-import TeacherDashboard from './TeacherDashboard';
-import SignUpAsTeacher from './SignUpAsTeacher';
+import NA from './NeedAuthentication';
+import TeacherDashboard from './Teacher/TeacherDashboard';
+import SignUpAsTeacher from './Teacher/SignUpAsTeacher';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/SignUpAsTeacher' element={<SignUpAsTeacher />} />
         <Route path='/TeacherDashboard' element={<TeacherDashboard />} />
+        <Route path='/NeedAuthentication' element={<NA />} />
       </Routes>
     </BrowserRouter>
   );
