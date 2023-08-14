@@ -1,10 +1,21 @@
-const express = require("express");
-const mysql = require("mysql");
-const cors = require("cors");
+import cookieParser from 'cookie-parser';
+import jwt from 'jsonwebtoken';
+import mysql from 'mysql';
+import cors from 'cors';
+import express from 'express';
 
 const app = express();
-app.use(cors());
+app.use(cookieParser());
+app.use(cors(
+    {
+        origin: ["http://localhost:3000"],
+        methods: ["POST", "GET"],
+        credentials: true
+    }
+));
+
 app.use(express.json());
+
 
 const db = mysql.createConnection({
     host: "localhost",
@@ -13,17 +24,31 @@ const db = mysql.createConnection({
     database: "obes"
 })
 
-app.get('/TeacherDashboard', (req, res) => {
-    const sql = "SELECT * FROM teachers WHERE `email` = ?";
-    const values = [req.query.email];
+const verifyUser = (req, res, next) => {
+    const token = req.cookies.token;
+    if(!token){
+        return res.json({Message: "We need token.. Login again.."});
+    }
+    else
+    {
+        jwt.verify(token, "jsonwebtoken-secret-key", (err, decoded) => {
+            if(err)
+            {
+                return res.json({Message: "Authentication error"});
+            }
+            else
+            {
+                req.name= decoded.name;
+                req.id = decoded.id;
+                req.dept = decoded.dept;
+                next();
+            }
+        })
+    }
+}
 
-    db.query(sql, [values], (err, result)=> {
-        if(err)
-        {
-            return res.json("Error..");
-        }
-        return res.json(result);
-    })
+app.get('/TeacherDashboard', verifyUser, (req, res) => {
+    return res.json({Status: "Success", name: req.name, id: req.id, dept: req.dept});
 })
 
 app.get('/TeacherInfo', (req, res) => {
@@ -35,7 +60,6 @@ app.get('/TeacherInfo', (req, res) => {
         {
             return res.json("Error..");
         }
-        console.log(req.query.id);
         return res.json(result);
     })
 })
@@ -81,6 +105,11 @@ app.post('/Login', (req, res)=> {
             str = str.slice(2, len -2);
             if(data[0].password === str)
             {
+                const name = data[0].name;
+                const id = data[0].t_id;
+                const dept = data[0].department;
+                const token = jwt.sign({ name, id, dept },"jsonwebtoken-secret-key", {expiresIn: '1d'});
+                res.cookie('token', token);
                 return res.json("Successful..");
             }
             else
@@ -90,6 +119,12 @@ app.post('/Login', (req, res)=> {
         }
        })
     }
+})
+
+
+app.get('/logout', (req,res) => {
+    res.clearCookie('token');
+    return res.json({Status: "Success"});
 })
 
 app.listen(7000, ()=> {
