@@ -4,7 +4,9 @@ import Home from './Home';
 import NA from './Teacher/NeedAuthentication';
 import TeacherDashboard from './Teacher/TeacherDashboard';
 import SignUpAsTeacher from './Teacher/SignUpAsTeacher';
+import CourseFile from './Teacher/CourseFile';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import CourseFile from './Teacher/CourseFile';
 
 function App() {
   return (
@@ -15,6 +17,7 @@ function App() {
         <Route path='/SignUpAsTeacher' element={<SignUpAsTeacher />} />
         <Route path='/TeacherDashboard' element={<TeacherDashboard />} />
         <Route path='/NeedAuthentication' element={<NA />} />
+        <Route path='/Enter-Course-File' element={<CourseFile />} />
       </Routes>
     </BrowserRouter>
   );
