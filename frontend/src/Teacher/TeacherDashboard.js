@@ -17,20 +17,28 @@ function TeacherDashboard() {
   }
 
   useEffect(()=> {
-    axios.get('http://localhost:7000/TeacherDashboard')
-    .then(res => {
-      if(res.data.Status === "Success")
-      {
-         setAuth(true);
-         setName(res.data.name);
-         setId(res.data.id);
-         setDept(res.data.dept);
-      }
-      else
-      {
-        setAuth(false);
-      }
-    })
+    const storedAuth = localStorage.getItem('auth');
+    if (storedAuth === 'true') {
+      setAuth(true);
+    }
+    else
+    {
+      axios.get('http://localhost:7000/TeacherDashboard')
+      .then(res => {
+        if(res.data.Status === "Success")
+        {
+          setAuth(true);
+          localStorage.setItem('auth', 'true');
+          setName(res.data.name);
+          setId(res.data.id);
+          setDept(res.data.dept);
+        }
+        else
+        {
+          setAuth(false);
+        }
+      })
+    }
 }, [])
 
   const [info, setInfo] = useState([]);

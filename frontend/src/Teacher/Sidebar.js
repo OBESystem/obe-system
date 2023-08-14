@@ -5,11 +5,11 @@ import axios from 'axios';
 function Sidebar(props) {
     const navigate = useNavigate();
     const handleLogout = () => {
+        localStorage.setItem('auth', 'false');
         axios.get('http://localhost:7000/Logout')
         .then(res => {
             if(res.data.Status === "Success")
             {
-                window.location.reload();
                 navigate('/');
             }
             else
@@ -18,6 +18,7 @@ function Sidebar(props) {
             }
         }).catch( err => console.log(err))
     }
+
     return (
         <div className="sidebar p-2">
             <div className="m-2">
@@ -37,13 +38,13 @@ function Sidebar(props) {
                     <i className="bi bi-speedometer2 fs-5 me-3"></i>
                     <span className="fs-5">Dashboard</span>
                 </a>
-                <a className="list-group-item py-2">
-                    <i className="bi bi-power fs-5 me-3"></i>
-                    <span className="fs-5" onClick={handleLogout}>Logout</span>
+                <a className="list-group-item py-2" onClick={handleLogout}>
+                        <i className="bi bi-power fs-5 me-3"></i>
+                        <span className="fs-5">Logout</span>
                 </a>
             </div>
         </div>
     )
 }
 
-export default Sidebar
+export default Sidebar;
