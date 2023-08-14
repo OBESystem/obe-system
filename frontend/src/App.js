@@ -6,7 +6,6 @@ import TeacherDashboard from './Teacher/TeacherDashboard';
 import SignUpAsTeacher from './Teacher/SignUpAsTeacher';
 import CourseFile from './Teacher/CourseFile';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import CourseFile from './Teacher/CourseFile';
 
 function App() {
   return (
