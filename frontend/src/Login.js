@@ -19,6 +19,7 @@ function Login() {
       setValues(prev => ({...prev, [event.target.name]: [event.target.value]}));
     }
 
+    axios.defaults.withCredentials = true;
     const handleSubmit=(event) => {
       event.preventDefault();
       setErrors(Validation(values));
@@ -99,7 +100,7 @@ function Login() {
                       <div className="col-1">
                         <input type="radio" name="loginType" value="department" />
                       </div>
-                      <div className="col-11"><label class="text-login-type" htmlFor="department">Department</label></div>
+                      <div className="col-11"><label class="text-login-type" htmlFor="department">Department Admin</label></div>
                     </div>
                     <div className="row">
                       <div className="col-1">

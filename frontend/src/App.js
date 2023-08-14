@@ -1,7 +1,7 @@
 import React from 'react';
 import Login from './Login';
 import Home from './Home';
-import NA from './NeedAuthentication';
+import NA from './Teacher/NeedAuthentication';
 import TeacherDashboard from './Teacher/TeacherDashboard';
 import SignUpAsTeacher from './Teacher/SignUpAsTeacher';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
