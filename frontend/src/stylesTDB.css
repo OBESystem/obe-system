@@ -1,0 +1,27 @@
+.list-group a:hover{
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+}
+
+.cnt{
+    background-color: rgb(100, 169, 235);
+}
+
+
+.sBar{
+    background-color: rgb(100, 169, 235);
+}
+
+.largeIcon{
+    font-size: 8rem !important;
+    color: rgb(9, 63, 243);
+}
+
+.nv{
+    background-color: transparent !important;
+}
+
+.lButton{
+    width: 300px;
+}
