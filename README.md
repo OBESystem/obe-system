@@ -7,5 +7,5 @@ install mysql, express, cors, nodemon, cookie-parser,  jsonwebtoken into backend
 
 import the given database into the phpMyAdmin on your device
 
-To run obe-only-frontend:
+**To run obe-only-frontend:**
 install bootstrap, react, react-dom, react-router-dom, axios into frontend folder
