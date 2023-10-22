@@ -68,8 +68,8 @@ function TeacherDashboard() {
   const navigate = useNavigate();
   //Reloading removes the user data
   
-  const [info, setInfo] = useState([{courseName: "Data Structure", courseCode:"CSE-152", year:"1st", sementer:"2nd", courseType:"Theory", credit:"3"}, 
-  {courseName: "Numerical Method Laboratory", courseCode:"CSE-207", year:"2nd", sementer:"1st", courseType:"Lab", credit:"1"}]);
+  const [info, setInfo] = useState([{courseName: "Data Structure", courseCode:"CSE-152", year:"1st", semester:"2nd", courseType:"Theory", credit:"3"}, 
+  {courseName: "Numerical Method Laboratory", courseCode:"CSE-207", year:"2nd", semester:"1st", courseType:"Lab", credit:"1"}]);
 
   const EnterCF=(index) => {
     navigate('/Enter-Course-File', { state: { courseData: info[index] } });
@@ -80,7 +80,7 @@ function TeacherDashboard() {
          auth ?
               <div className="container-fluid bg-secondary min-vh-100">
                 <div className="row cnt">
-                  {toggle && <div className="col-4 col-md-2 bg-white vh-100 sBar">
+                  {toggle && <div className="col-4 col-md-2 bg-white vh-100">
                     <Sidebar name={name} dept={dept}/>
                   </div>}
                   <div className="col">
@@ -120,7 +120,7 @@ function TeacherDashboard() {
                         <thead>
                           <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Course Name</th>
+                            <th scope="col">Course Title</th>
                             <th scope="col">Course Code</th>
                             <th scope="col">Year</th>
                             <th scope="col">Semester</th>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import './stylesTDB.css';
 //import axios from 'axios';
 
 function Sidebar(props) {
@@ -7,6 +8,14 @@ function Sidebar(props) {
 
     const handleLogout = () => {
         navigate('/');
+    }
+
+    const goToDashboard = () => {
+        navigate('/TeacherDashboard');
+    }
+
+    const goToAcademicCalendar = () => {
+        navigate('/AcademicCalendar');
     }
 
     /*const handleLogout = () => {
@@ -39,11 +48,15 @@ function Sidebar(props) {
             </div>
             <hr className="text-dark"></hr>
             <div className="list-group list-group-flush">
-                <a className="list-group-item py-2">
+                <a className="list-group-item py-2" onClick={goToDashboard} >
                     <i className="bi bi-speedometer2 fs-5 me-3"></i>
                     <span className="fs-5">Dashboard</span>
                 </a>
-                <a className="list-group-item py-2" onClick={handleLogout}>
+                <a className="list-group-item py-2" onClick={goToAcademicCalendar}>
+                        <i className="bi bi-calendar fs-5 me-3"></i>
+                        <span className="fs-5">Academic calender</span>
+                </a>
+                <a className="list-group-item py-2 text-danger" onClick={handleLogout}>
                         <i className="bi bi-power fs-5 me-3"></i>
                         <span className="fs-5">Logout</span>
                 </a>

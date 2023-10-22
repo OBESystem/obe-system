@@ -25,3 +25,14 @@
 .lButton{
     width: 300px;
 }
+
+.sidebar{
+    position: fixed; /* Fix the sidebar's position */
+    top: 0; /* Adjust as needed to control the vertical position */
+    left: 0; /* Fix the sidebar to the left side of the screen */
+    width: 17%; /* Adjust the width as needed */
+    height: 100%; /* Fill the entire height of the viewport */
+    background-color: #fff; /* Sidebar background color */
+    overflow-y: auto; /* Enable scrolling if content exceeds the height */
+    border-right: 1px solid #ccc;
+}
