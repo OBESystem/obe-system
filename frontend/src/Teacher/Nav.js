@@ -16,8 +16,8 @@ function Nav(props) {
                         {props.name}
                     </a>
                     <div className="dropdown-menu" aria-labelledby="dropdownId">
-                        <a className="dropdown-item" href="#">Profile</a>
-                        <a className="dropdown-item" href="#">Settings</a>
+                        <a className="dropdown-item">Profile</a>
+                        <a className="dropdown-item">Settings</a>
                     </div>
                 </li>
             </ul>
