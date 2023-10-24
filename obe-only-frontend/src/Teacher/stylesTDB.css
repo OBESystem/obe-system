@@ -6,6 +6,7 @@
 
 .cnt{
     background-color: rgb(100, 169, 235);
+    background-image: linear-gradient(grey,rgb(100, 169, 235), rgb(36, 51, 180)) !important;
 }
 
 
