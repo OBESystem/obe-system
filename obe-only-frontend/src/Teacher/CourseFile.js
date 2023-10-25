@@ -18,31 +18,6 @@ function CourseFile() {
   const Toggle = () =>{
     setToggle(!toggle)
   }
-
-  /* useEffect(() => {
-    const classTestButtons = document.querySelectorAll(".btn-classTest");
-
-    classTestButtons.forEach((button) => {
-      button.addEventListener("click", function () {
-        // Close all other collapsed elements
-        classTestButtons.forEach((otherButton) => {
-          if (otherButton !== button) {
-            const targetId = otherButton.getAttribute("aria-controls");
-            const target = document.getElementById(targetId);
-            otherButton.setAttribute("aria-expanded", "false");
-            target.classList.remove("show");
-          }
-        });
-
-        // Toggle the aria-expanded attribute and show/hide the content
-        const targetId = button.getAttribute("aria-controls");
-        const target = document.getElementById(targetId);
-        const isExpanded = button.getAttribute("aria-expanded") === "true";
-        button.setAttribute("aria-expanded", isExpanded ? "false" : "true");
-        target.classList.toggle("show");
-      });
-    });
-  }, []); */
   
   const handleSubmit=(event) => {
     event.preventDefault();
@@ -107,16 +82,16 @@ function CourseFile() {
          auth ?
               <div className="container-fluid bg-secondary min-vh-100">
                 <div className="row cnt1">
-                  {toggle && <div className="col-4 col-md-2 bg-white vh-100">
+                  {toggle && <div className="col-4 col-md-2 bg-white ">
                     <Sidebar name={name} dept={dept}/>
                   </div>}
                   <div className="col">
                   <div className="px-3">
                   <Nav Toggle={Toggle} name={name}/>
-                  <div className="container-fluid">
+                  <div className="container-fluid" id="courseFile">
                       <div className="row g-3 my-2">
                           <div className="col-md-12 p-1">
-                              <div className="row p-3 bg-white shadow-sm d-flex justify-content-around  rounded">
+                              <div className="row p-3 bg-white shadow-sm d-flex justify-content-around rounded">
                                   <div className="col-md-12 courseInfo">
                                         <p className="fs-2"><strong>Course title</strong>: <span>{data.courseName}</span></p>
                                         <p className="fs-5"><strong>Course Code</strong>: <span>{data.courseCode}</span></p>
@@ -125,7 +100,7 @@ function CourseFile() {
                                         <p className="fs-6"><strong>Credit</strong>: <span>{data.credit}</span></p>
                                   </div>
                               </div>
-                              <div className="row p-3 bg-white shadow-sm d-flex justify-content-around part rounded" id="assignment">
+                              <div className="row p-3 bg-white shadow-sm d-flex justify-content-around part rounded" id="assignment"> 
                                 <p>
                                   <label className="fs-2"><strong>Assesment:</strong></label>
                                 </p>
@@ -147,63 +122,42 @@ function CourseFile() {
                                   </div>
                                 </div>
                               </div>
-                              <div className="row p-3 bg-white shadow-sm d-flex justify-content-around part rounded" id="tutorial">
+                              <div className="row p-3 bg-white shadow-sm d-flex justify-content-around part rounded" id="classTest">
                                 <p>
                                   <label className="fs-2"><strong>Class tests:</strong></label>
-                                  <div className="btn-group">
-                                    <button className="dropdown-toggle" id="btn-chooseClassTest" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                      Select one
-                                    </button>
-                                    <ul className="dropdown-menu">
-                                      <li>
-                                      <button className="btn-classTest" id="btn-cT1" type="button" data-bs-toggle="collapse" data-bs-target="#classTest1" aria-expanded="false" aria-controls="collapseExample">
-                                         Class test 1
-                                      </button>
-                                      </li>
-                                      <li>
-                                      <button className="btn-classTest" id="btn-cT2" type="button" data-bs-toggle="collapse" data-bs-target="#classTest2" aria-expanded="false" aria-controls="collapseExample">
-                                        Class test 2
-                                      </button>
-                                      </li>
-                                      <li>
-                                      <button className="btn-classTest" id="btn-cT3" type="button" data-bs-toggle="collapse" data-bs-target="#classTest3" aria-expanded="false" aria-controls="collapseExample">
-                                        Class test 3
-                                      </button>
-                                      </li>
-                                    </ul>
-                                  </div>
                                 </p>
-                                <div className="collapse" id="classTest1">
-                                  <div className="card card-body">
-                                    <label id="courseFileClassTestTitle">Class Test 1</label>
-                                    <form onSubmit={handleSubmit}>
-                                      <div className="mb-3">
-                                        <label for="q1" className="form-label infoFormTitle">Question:</label>
-                                        <input className="form-control" name="questionCT1" type="file" id="q1" required/>
-                                      </div>
-                                      <div className="mb-3">
-                                        <label for="cp1" className="form-label infoFormTitle">Compliance Form:</label>
-                                        <input className="form-control" name="complianceFormCT1" type="file" id="cp1" required/>
-                                      </div>
-                                      <div className="mb-3">
-                                        <label for="ansH1" className="form-label infoFormTitle">Answer Script for Highest Marks Attained:</label>
-                                        <input className="form-control" name="answerscriptBestCT1" type="file" id="ansH1" required/>
-                                      </div>
-                                      <div className="mb-3">
-                                        <label for="ansH1" className="form-label infoFormTitle">Answer Script for Average Marks Attained:</label>
-                                        <input className="form-control" name="answerscriptAvgCT1" type="file" id="ansA1" required/>
-                                      </div>
-                                      <div className="mb-3">
-                                        <label for="ansL1" className="form-label infoFormTitle">Answer Script for Lowest Marks Attained:</label>
-                                        <input className="form-control" name="answerscriptLowCT1" type="file" id="ansL1" required/>
-                                      </div>
-                                      <button type="reset" class="btn btn-secondary">Reset</button>
-                                      <button type="submit" class="btn btn-success btnSubmit">Submit</button>
-                                      <button type="submit" class="btn btn-lg btn-info btn-enterMarks">Enter Marks</button>
-                                    </form>
+                                <div className="wrapper">
+                                  <div className="item" id="classTest1">
+                                    <div className="card card-body">
+                                      <label id="courseFileClassTestTitle">Class Test 1</label>
+                                      <form onSubmit={handleSubmit}>
+                                        <div className="mb-3">
+                                          <label for="q1" className="form-label infoFormTitle">Question:</label>
+                                          <input className="form-control" name="questionCT1" type="file" id="q1" required/>
+                                        </div>
+                                        <div className="mb-3">
+                                          <label for="cp1" className="form-label infoFormTitle">Compliance Form:</label>
+                                          <input className="form-control" name="complianceFormCT1" type="file" id="cp1" required/>
+                                        </div>
+                                        <div className="mb-3">
+                                          <label for="ansH1" className="form-label infoFormTitle">Answer Script for Highest Marks Attained:</label>
+                                          <input className="form-control" name="answerscriptBestCT1" type="file" id="ansH1" required/>
+                                        </div>
+                                        <div className="mb-3">
+                                          <label for="ansH1" className="form-label infoFormTitle">Answer Script for Average Marks Attained:</label>
+                                          <input className="form-control" name="answerscriptAvgCT1" type="file" id="ansA1" required/>
+                                        </div>
+                                        <div className="mb-3">
+                                          <label for="ansL1" className="form-label infoFormTitle">Answer Script for Lowest Marks Attained:</label>
+                                          <input className="form-control" name="answerscriptLowCT1" type="file" id="ansL1" required/>
+                                        </div>
+                                        <button type="reset" class="btn btn-secondary">Reset</button>
+                                        <button type="submit" class="btn btn-success btnSubmit">Submit</button>
+                                        <button type="submit" class="btn btn-lg btn-info btn-enterMarks">Enter Marks</button>
+                                      </form>
+                                    </div>
                                   </div>
-                                </div>
-                                <div className="collapse" id="classTest2">
+                                  <div className="item" id="classTest2">
                                   <div className="card card-body">
                                     <label id="courseFileClassTestTitle">Class Test 2</label>
                                     <form onSubmit={handleSubmit}>
@@ -233,7 +187,7 @@ function CourseFile() {
                                     </form>
                                   </div>
                                 </div>
-                                <div className="collapse" id="classTest3">
+                                <div className="item" id="classTest3">
                                   <div className="card card-body">
                                   <label id="courseFileClassTestTitle">Class Test 3</label>
                                     <form onSubmit={handleSubmit}>
@@ -262,6 +216,7 @@ function CourseFile() {
                                       <button type="submit" class="btn btn-lg btn-info btn-enterMarks">Enter Marks</button>
                                     </form>
                                   </div>
+                                </div>
                                 </div>
                               </div>
                               <div className="row p-3 bg-white shadow-sm d-flex justify-content-around part rounded" id="finalExam">

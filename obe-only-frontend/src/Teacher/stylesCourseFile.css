@@ -72,3 +72,15 @@
 .btn-enterMarks{
     float: right;
 }
+
+.wrapper{
+    display:flex;
+    overflow-x: auto;
+    max-width:1450px;
+}
+
+.wrapper .item{
+    width: 700px;
+    min-width:700px;
+    margin-right:20px;
+}
