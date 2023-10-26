@@ -80,7 +80,7 @@ function TeacherDashboard() {
          auth ?
               <div className="container-fluid bg-secondary min-vh-100">
                 <div className="row cnt">
-                  {toggle && <div className="col-4 col-md-2 bg-white">
+                  {toggle && <div className="col-4 col-md-2 bg-white vh-100">
                     <Sidebar name={name} dept={dept}/>
                   </div>}
                   <div className="col">
