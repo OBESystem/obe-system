@@ -1,0 +1,16 @@
+.nv{
+    height: 150px !important;
+    background-image: linear-gradient(white, rgb(12, 105, 226)) !important;
+}
+
+#logo1{
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    margin-left: auto;
+}
+
+#title{
+    color: white;
+    margin-right: auto;
+}

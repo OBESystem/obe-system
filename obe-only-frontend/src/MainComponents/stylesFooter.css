@@ -1,0 +1,10 @@
+#footer{
+    height: 10vh;
+    text-align: center !important;
+    color: grey;
+}
+
+#line{
+    background-color: grey;
+    height: 3px;
+}
