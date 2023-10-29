@@ -89,7 +89,7 @@ function TeacherDashboard() {
                   <Nav Toggle={Toggle} name={name}/>
                   <div className="container-fluid">
                       <div className="row g-3 my-2">
-                          <div className="col-md-3 p-1">
+                          <div className="col-md-3 p-1 box">
                               <div className="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                                   <div>
                                       <h3 className="fs-2">2</h3>
@@ -98,7 +98,7 @@ function TeacherDashboard() {
                                   <i className="bi bi-card-list p-3 fs-1"></i>
                               </div>
                           </div>
-                          <div className="col-md-3 p-1">
+                          <div className="col-md-3 p-1 box">
                               <div className="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                                   <div>
                                       <h3 className="fs-2">3</h3>

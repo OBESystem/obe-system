@@ -1,6 +1,7 @@
 .nv{
     height: 150px !important;
     background-image: linear-gradient(white, rgb(12, 105, 226)) !important;
+    font-family: 'Roboto', sans-serif;
 }
 
 #logo1{

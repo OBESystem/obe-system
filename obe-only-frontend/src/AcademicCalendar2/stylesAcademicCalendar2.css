@@ -1,0 +1,34 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#calendarBody{
+    border:  6px solid rgb(33,101,131);
+}
+
+.hero{
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+    height: 100%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    
+}
+
+#calendar{
+    width: 70%;
+    
+}
+
+
+.nv3{
+    height: 150px !important;
+    background-image: linear-gradient(white, rgb(33,101,131)) !important;
+    font-family: 'Roboto', sans-serif;
+}
+
+#title{
+    color: white;
+    margin-right: auto;
+}

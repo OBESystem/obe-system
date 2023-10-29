@@ -5,6 +5,7 @@
 }
 
 .cnt{
+    font-family: 'Roboto', sans-serif;
     background-color: rgb(100, 169, 235);
     background-image: linear-gradient(grey,rgb(100, 169, 235), rgb(36, 51, 180)) !important;
 }
@@ -25,6 +26,11 @@
 
 .lButton{
     width: 300px;
+}
+
+.box{
+    font-family: 'Times New Roman', Times, serif !important;
+    font-weight: bold;
 }
 
 .sidebar{

@@ -6,6 +6,7 @@ import TeacherDashboard from './Teacher/TeacherDashboard';
 import SignUpAsTeacher from './Teacher/SignUpAsTeacher';
 import CourseFile from './Teacher/CourseFile';
 import AcademicCalendar from './AcademicCalendar/AcademicCalendar';
+//import AcademicCalendar from './AcademicCalendar2/AcademicCalendar2';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {

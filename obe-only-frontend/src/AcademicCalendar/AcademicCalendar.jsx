@@ -195,7 +195,7 @@ function AcademicCalendar() {
         </table>
       </div>
 
-      <Footer title={"Academic Calendar"} />
+      <Footer />
     </div>
   );
 }
