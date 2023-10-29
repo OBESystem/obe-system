@@ -1,0 +1,86 @@
+.list-group a:hover{
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+}
+
+.cnt1{
+    background-image: linear-gradient(90deg, rgb(164, 162, 170),rgb(118, 116, 238)) !important;
+}
+
+.courseInfo{
+    text-align: center !important;
+}
+
+
+.sBar{
+    background-color: rgb(100, 169, 235);
+}
+
+.largeIcon{
+    font-size: 8rem !important;
+    color: rgb(9, 63, 243);
+}
+
+.nv{
+    background-color: transparent !important;
+}
+
+.lButton{
+    width: 300px;
+}
+
+
+.part{
+    margin-top: 25px;
+}
+
+#btn-chooseClassTest{
+    width: 150px;
+    height: 50px;
+    margin-left: 20px;
+    background-color: rgb(73, 73, 194);
+    border-radius: 10px;
+    color: white;
+}
+
+.btn-classTest{
+    width: 100%;
+    height: 50px;
+    background-color: rgb(166, 166, 235);
+    color: rgb(37, 35, 66);
+    border-radius: 10px;
+    border-color: white;
+}
+
+.infoFormTitle{
+    color: rgb(26, 26, 109);
+    font-size: 22px;
+}
+
+#courseFileClassTestTitle{
+    color: rgb(26, 26, 109);
+    font-size: 30px;
+    text-decoration: underline;
+    margin-bottom: 10px;
+}
+
+.btnSubmit{
+    margin-left: 10px;
+}
+
+.btn-enterMarks{
+    float: right;
+}
+
+.wrapper{
+    display:flex;
+    overflow-x: auto;
+    max-width:1450px;
+}
+
+.wrapper .item{
+    width: 700px;
+    min-width:700px;
+    margin-right:20px;
+}
