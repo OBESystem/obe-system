@@ -1,6 +1,7 @@
 #hp{
     border: 6px solid rgb(12, 105, 226);
     margin:0px;
+    font-family: 'Roboto', sans-serif;
 }
 .nv1{
     height: 150px !important;
@@ -81,16 +82,6 @@
     color: rgb(3, 64, 145);
 }
 
-#footer{
-    height: 10vh;
-    text-align: center !important;
-    color: grey;
-}
-
-#line{
-    background-color: grey;
-    height: 3px;
-}
 
 @media (max-width: 991px) {
     .navbar-collapse {
