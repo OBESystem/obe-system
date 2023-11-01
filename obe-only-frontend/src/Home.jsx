@@ -27,7 +27,7 @@ function Home() {
                      Sign Up as Teacher
                   </li>
                   <li className="dropdown-item" id="drop-down-2">
-                    dunno
+                    Sign Up as Department<br/>Admin
                   </li>
                 </ul>
               </li>
