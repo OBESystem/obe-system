@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 13, 2023 at 08:41 PM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Generation Time: Nov 01, 2023 at 10:57 AM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -42,8 +42,8 @@ CREATE TABLE `coursetable` (
 --
 
 INSERT INTO `coursetable` (`t_id`, `courseName`, `courseCode`, `courseType`, `year`, `semester`, `credit`) VALUES
-('3', 'Data Structures', 'CSE-152', 'Theory', '1st', '2nd', 3),
-('3', 'Numerical Method Laboratory', 'CSE-207', 'Lab', '2nd', '1st', 1);
+('4', 'Data Structures', 'CSE-152', 'Theory', '1st', '2nd', 3),
+('4', 'Numerical Method Laboratory', 'CSE-207', 'Lab', '2nd', '1st', 1);
 
 -- --------------------------------------------------------
 
@@ -66,7 +66,8 @@ CREATE TABLE `teachers` (
 INSERT INTO `teachers` (`name`, `t_id`, `department`, `email`, `password`) VALUES
 ('abcd', 1, 'CSE', 'abcd@gamil.com', 'abcd'),
 ('defg', 2, 'IIT', 'defg@gmail.com', 'defg'),
-('subarna', 3, 'CSE', 'subarna@gmail.com', 'aaaa1111');
+('subarna', 3, 'CSE', 'subarna@gmail.com', 'aaaa1111'),
+('Dr. Md. Golam Moazzam', 4, 'CSE', 'jucse4@gmail.com', 'abcd1234');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
