@@ -1,0 +1,102 @@
+#hp{
+    border: 6px solid rgb(12, 105, 226);
+    margin:0px;
+    font-family: 'Roboto', sans-serif;
+}
+.nv1{
+    height: 150px !important;
+    background-image: linear-gradient(white, rgb(12, 105, 226)) !important;
+}
+
+#dropdown-menu {
+    display: block;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: white;
+    border: 1px solid blue;
+    border-radius: 10px;
+    position: absolute;
+    right: 1%;
+    top: 100px;
+    color:blue;
+}
+  
+#dropdown-menu li {
+    padding: 8px 12px;
+    cursor: pointer;
+    border: 1px solid rgb(67, 99, 224);
+}
+  
+#dropdown-menu li:hover {
+    background-color: #ddd;
+    border-radius: 10px;
+}
+
+
+#logo{
+    margin-right: auto !important;
+    margin-left: 15px !important;
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+}
+
+#title{
+    color: rgb(212, 213, 230) !important;
+}
+
+.header-button{
+    color: rgb(189, 208, 231);
+    width: 100px;
+    height: 50px;
+    border: 4px solid rgb(3, 64, 145);
+    background-color: rgb(5, 112, 252);
+    color:white !important;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+#btn1{
+    margin-right: 40px;
+}
+#navbarDropdown{
+    margin-right: 70px;
+}
+
+.header-button:hover{
+    background-color: rgb(3, 64, 145);
+}
+
+#image{
+    background: url('./Assets/bloomsTaxonomy.jpg') no-repeat center center;
+    height:65vh;
+}
+#quote{
+    padding-top:30px;
+    width: 100%;
+    text-align: center;
+    font-family: Arial;
+    font-size: 22px;
+    color: rgb(3, 64, 145);
+}
+
+
+@media (max-width: 991px) {
+    .navbar-collapse {
+        position: absolute;
+        right: 0;
+        top: 100%;
+        width:200px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1000;
+    }
+    .header-button{
+        width: 200px;
+        height: 50px;
+    }
+    #title{
+        margin-right: auto !important;
+    }
+}
