@@ -48,6 +48,7 @@ const verifyUser = (req, res, next) => {
     }
 }
 
+//Teacher Part
 app.get('/TeacherDashboard', verifyUser, (req, res) => {
     return res.json({Status: "Success", user_id: req.user_id, name: req.name, id: req.user_id, dept: req.dept, designation: req.designation});
 })
@@ -131,6 +132,22 @@ app.post('/SubmitCourseFile', (req, res)=> {
             return res.json("Error");
         }
         return res.json("Success");
+    })
+})
+
+//Exam Control Office Part
+app.get('/ECODashboard', verifyUser, (req, res) => {
+    return res.json({Status: "Success", user_id: req.user_id, name: req.name, id: req.user_id, dept: req.dept, designation: req.designation});
+})
+
+app.get('/ApplySearchForECO', (req, res) => {
+    const sql = "SELECT * FROM `coursetable` WHERE `department` LIKE ? AND `examYear` LIKE ? AND `year` LIKE ? AND `semester` LIKE ?";
+    db.query(sql,[req.query.department+'%', req.query.examYear+'%', req.query.year+'%', req.query.semester+'%'],(err, result)=> {
+        if(err)
+        {
+            return res.json("Error..");
+        }
+        return res.json(result);
     })
 })
 
