@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 03, 2023 at 08:28 AM
+-- Generation Time: Nov 03, 2023 at 06:18 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -91,7 +91,16 @@ CREATE TABLE `coursetable` (
 INSERT INTO `coursetable` (`department`, `t_id`, `courseName`, `courseCode`, `courseType`, `year`, `semester`, `examYear`, `credit`, `isCourseFileSubmitted`) VALUES
 ('CSE', 1, 'Data Structure', 'CSE-162', 'Theory', '1st', '2nd', '2022', 3, '1'),
 ('CSE', 1, 'Computer graphics Laboratory', 'CSE-304', 'Lab', '3rd', '1st', '2022', 1, '0'),
-('CSE', 4, 'Computer Ethics', 'CSE-203', 'Theory', '2nd', '1st', '2021', 3, '0');
+('CSE', 2, 'Computer Ethics', 'CSE-203', 'Theory', '2nd', '1st', '2021', 3, '0'),
+('CSE', 0, 'Algorithm-II', 'CSE-257', 'Theory', '2nd', '2nd', '2021', 3, '0'),
+('CSE', 0, 'Digital Logic Design', 'CSE-253', 'Theory', '2nd', '2nd', '2022', 3, '0'),
+('CSE', 0, 'Electrical Circuit Lab', 'CSE-108', 'Lab', '1st', '1st', '2019', 1, '0'),
+('CSE', 0, 'C++', 'CSE-105', 'Theory', '1st', '2nd', '2020', 3, '0'),
+('CSE', 0, 'Java Lab', 'CSE-259', 'Lab', '2nd', '1st', '2021', 1, '0'),
+('CSE', 0, 'Computer Architecture and Organization', 'CSE-307', 'Theory', '3rd', '1st', '2022', 3, '0'),
+('CSE', 0, 'Microprocessor Lab', 'CSE-358', 'Lab', '3rd', '2nd', '2022', 1, '0'),
+('CSE', 0, 'Computer graphics', 'CSE-303', 'theory', '3rd', '1st', '2020', 3, '0'),
+('CSE', 0, 'Computer Network', 'CSE-403', 'Theory', '4th', '1st', '2021', 3, '0');
 
 -- --------------------------------------------------------
 
@@ -115,7 +124,8 @@ CREATE TABLE `teacher` (
 --
 
 INSERT INTO `teacher` (`t_id`, `user_id`, `name`, `department`, `designation`, `email`, `phoneNumber`, `password`) VALUES
-(1, 4, 'Rubayed', 'CSE', 'Lecturer', 'abcd@gmail.com', '01987767666', 'abcd1111');
+(1, 3, 'Subarna Saha', 'CSE', 'Lecturer', 'subarna@gmail.com', '01675564345', 'subarna1234'),
+(2, 4, 'Rubayed', 'CSE', 'Associate Professor', 'rubayed@gmail.com', '01987767666', 'rubayed1234');
 
 -- --------------------------------------------------------
 
@@ -139,9 +149,19 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `name`, `department`, `designation`, `email`, `phoneNumber`, `password`, `userType`) VALUES
-(3, 'Subarna Saha', 'CSE', 'Lecturer', 'subarna@gmail.com', '01675564345', 'aaaa1111', '0'),
-(4, 'Rubayed', 'CSE', 'Associate Professor', 'abcd@gmail.com', '01987767666', 'abcd1111', '1'),
-(5, 'Trisha Sarkar', 'Exam Control Office', 'Employee', 'trisha@gmail.com', '01567777773', 'trisha1234', '2');
+(3, 'Subarna Saha', 'CSE', 'Lecturer', 'subarna@gmail.com', '01675564345', 'subarna1234', '1'),
+(4, 'Rubayed', 'CSE', 'Associate Professor', 'rubayed@gmail.com', '01987767666', 'rubayed1234', '2'),
+(5, 'Trisha Sarkar', 'Exam Control Office', 'Employee', 'trisha@gmail.com', '01567777773', 'trisha1234', '3'),
+(6, 'Rahim Islam', 'CSE', 'Lecturer', 'rahim@gmail.com', '01999999456', 'rahim1111', '0'),
+(7, 'Rai', 'English', 'Lecturer', 'rai1@gmail.com', '01799136578', 'rai123', '0'),
+(8, 'Arjun', 'Exam Control Office', 'Employee', 'arjun02@gmail.com', '01842809101', 'arjun101', '0'),
+(9, 'Shree', 'Economics', 'Professor', 'shree59@gmail.com', '01715809101', 'shree23', '0'),
+(10, 'Sornali', 'Microbiology', 'Professor', 'sornali34@gmail.com', '01789654567', 'sornali18', '0'),
+(11, 'Malati', 'Botany', 'Lecturer', 'malati3@gmail.com', '01799234567', 'malati24', '0'),
+(12, 'Aditto', 'English', 'Lecturer', 'adi2@gmail.com', '01789654324', 'adi23', '0'),
+(13, 'Mahiyat', 'CSE', 'Associate Professor', 'mahiyat@gmail.com', '01768945367', 'mahiyat27', '0'),
+(14, 'Setu', 'Zoology', 'Employee', 'setu19@gmail.com', '01345748493', 'setu89', '0'),
+(15, 'kygnog', 'CSE', 'oiupom', 'defg@gmail.com', '01999999999', 'ytcbiy', '0');
 
 --
 -- Indexes for dumped tables
@@ -167,13 +187,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `teacher`
 --
 ALTER TABLE `teacher`
-  MODIFY `t_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `t_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `user_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
