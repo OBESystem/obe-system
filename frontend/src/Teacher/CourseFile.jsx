@@ -275,45 +275,137 @@ function CourseFile() {
             <div className="px-3">
             <Nav Toggle={Toggle} name={name}/>
             <div className="container-fluid" id="courseFile">
-                <div className="row g-3 my-2">
-                    <div className="col-md-12 p-1">
-                        <div className="row p-3 bg-white shadow-sm d-flex justify-content-around rounded">
-                            <div className="col-md-12 courseInfo">
-                                  <p className="fs-2"><strong>Course title</strong>: <span>{data.courseName}</span></p>
-                                  <p className="fs-5"><strong>Course Code</strong>: <span>{data.courseCode}</span></p>
-                                  <p className="fs-5"><strong>Semester</strong>: <span>{data.year}</span> year <span>{data.semester}</span> semester</p>
-                                  <p className="fs-6"><strong>Type</strong>: <span>{data.courseType}</span></p>
-                                  <p className="fs-6"><strong>Credit</strong>: <span>{data.credit}</span></p>
-                            </div>
-                        </div>
-                        <div className="row p-3 bg-white shadow-sm d-flex justify-content around part rounded" id="assignment">
-                          <p>
-                            <label className="fs-2"><strong>Assignments:</strong></label>
-                          </p>
-                          <div className="wrapper">
-                            <Assignment assignmentID="1"/>
-                          </div>
-                        </div>
-                        <div className="row p-3 bg-white shadow-sm d-flex justify-content around part rounded" id="classTest">
-                          <p>
-                            <label className="fs-2"><strong>Class tests:</strong></label>
-                          </p>
-                          <div className="wrapper">
-                            <ClassTest ctID="1"/>
-                            <ClassTest ctID="2"/>
-                            <ClassTest ctID="3"/>
-                          </div>
-                        </div>
-                        <div className="row p-3 bg-white shadow-sm d-flex justify-content-around part rounded" id="finalExam">
-                          <FinalExam />
-                        </div>
+              <div className="row g-3 my-2">
+                <div className="col-md-12 p-1">
+                  <div className="row p-3 bg-white shadow-sm d-flex justify-content-around rounded">
+                    <div className="col-md-12 courseInfo">
+                      <p className="fs-2"><strong>Course title</strong>: <span>{data.courseName}</span></p>
+                      <p className="fs-5"><strong>Course Code</strong>: <span>{data.courseCode}</span></p>
+                      <p className="fs-5"><strong>Semester</strong>: <span>{data.year}</span> year <span>{data.semester}</span> semester</p>
+                      <p className="fs-6"><strong>Type</strong>: <span>{data.courseType}</span></p>
+                      <p className="fs-6"><strong>Credit</strong>: <span>{data.credit}</span></p>
                     </div>
+                  </div>
+                  <div className="row p-3 bg-white shadow-sm d-flex justify-content around part rounded" id="assignment">
+                    <p>
+                      <label className="fs-2"><strong>Assignments:</strong></label>
+                    </p>
+                    <div>
+                      {showAGNlist && 
+                      (
+                        <div className="wrapper">
+                          {AGNinfo.slice(0, AGNinfo.length).map((agn,index) => {
+                          return (
+                            <Assignment assignmentID={agn.agnID}/>
+                          );
+                        })}
+                        </div>
+                      )}
+                    </div>
+                    <div className="card card-body" id="AGNlist">
+                    {showAGNlist && (<div className="row g-3 my-2">
+                      <strong><span className="fs-3">List of assignments:</span></strong>
+                      <table className="table table-responsive-sm table-striped table-bordered bg-white table-bordered border-primary text-center">
+                        <thead>
+                          <tr>
+                            <th scope="col">Assignment ID</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        {AGNinfo.slice(0, AGNinfo.length).map((agn,index) => {
+                        return (
+                          <tr>
+                                <td>Assignment {agn.agnID}</td>
+                          </tr>
+                        );
+                        })}
+                        </tbody>
+                      </table>
+                      </div>)}
+                    </div>
+                    <div className="row">
+                      <div className="col-2"></div>
+                      <div className="col-3"><button className="btn btn-lg btn-primary btnAd" 
+                        onClick={() => {
+                          AddAGN();
+                        }}>
+                        Add Assignment</button></div>
+                      <div className="col-2"></div>
+                      <div className="col-3"> <button className="btn btn-lg btn-info btnSh" 
+                      onClick={() => {
+                        setShowAGNlist(!showAGNlist);
+                        GetAGNInfo();
+                      }}>
+                      Show list of Assignments</button></div>
+                      <div className="col-2"></div>
+                    </div>
+                  </div>
+                  <div className="row p-3 bg-white shadow-sm d-flex justify-content around part rounded" id="classTest">
+                    <p>
+                      <label className="fs-2"><strong>Class tests:</strong></label>
+                    </p>
+                    <div>
+                      {showCTlist && 
+                      (
+                        <div className="wrapper">
+                          {CTinfo.slice(0, CTinfo.length).map((ct,index) => {
+                          return (
+                            <ClassTest ctID={ct.ctID} />
+                          );
+                        })}
+                        </div>
+                      )}
+                    </div>
+                    <div className="card card-body" id="CTlist">
+                    {showCTlist && (<div className="row g-3 my-2">
+                      <strong><span className="fs-3">List of class tests:</span></strong>
+                      <table className="table table-responsive-sm table-striped table-bordered bg-white table-bordered border-primary text-center">
+                        <thead>
+                          <tr>
+                            <th scope="col">Class test ID</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        {CTinfo.slice(0, CTinfo.length).map((ct,index) => {
+                        return (
+                          <tr>
+                                <td>Class test {ct.ctID}</td>
+                          </tr>
+                        );
+                        })}
+                        </tbody>
+                      </table>
+                      </div>)}
+                    </div>
+                    <div className="row">
+                      <div className="col-2"></div>
+                      <div className="col-3"><button className="btn btn-lg btn-primary btnAd" 
+                        onClick={() => {
+                          AddCT();
+                        }}>
+                        Add Class test</button></div>
+                      <div className="col-2"></div>
+                      <div className="col-3"> <button className="btn btn-lg btn-info btnSh" 
+                      onClick={() => {
+                        setShowCTlist(!showCTlist);
+                        GetCTInfo();
+                      }}>
+                      Show list of Class Tests</button></div>
+                      <div className="col-2"></div>
+                    </div>
+                  </div>
+                  <div className="row p-3 bg-white shadow-sm d-flex justify-content-around part rounded" id="finalExam">
+                    <FinalExam />
+                  </div>
                 </div>
-                <div className="row g-3 my-2">
-                  
-                </div>
+              </div>
+              <div className="row">
+                <div className="col-3"></div>
+                <div className="col-6"><button className="btn btn-lg btn-primary" id="FST" onClick={() => {handleCourseFileSubmission();}}>Submit</button></div>
+                <div className="col-3"></div>
+              </div>
             </div>
-        </div>
+          </div>
         </div>}
         </div>
         :
