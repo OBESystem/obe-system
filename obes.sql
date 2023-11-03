@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 02, 2023 at 07:35 PM
+-- Generation Time: Nov 03, 2023 at 08:28 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -90,7 +90,8 @@ CREATE TABLE `coursetable` (
 
 INSERT INTO `coursetable` (`department`, `t_id`, `courseName`, `courseCode`, `courseType`, `year`, `semester`, `examYear`, `credit`, `isCourseFileSubmitted`) VALUES
 ('CSE', 1, 'Data Structure', 'CSE-162', 'Theory', '1st', '2nd', '2022', 3, '1'),
-('CSE', 1, 'Computer graphics Laboratory', 'CSE-304', 'Lab', '3rd', '1st', '2022', 1, '0');
+('CSE', 1, 'Computer graphics Laboratory', 'CSE-304', 'Lab', '3rd', '1st', '2022', 1, '0'),
+('CSE', 4, 'Computer Ethics', 'CSE-203', 'Theory', '2nd', '1st', '2021', 3, '0');
 
 -- --------------------------------------------------------
 
@@ -139,7 +140,8 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`user_id`, `name`, `department`, `designation`, `email`, `phoneNumber`, `password`, `userType`) VALUES
 (3, 'Subarna Saha', 'CSE', 'Lecturer', 'subarna@gmail.com', '01675564345', 'aaaa1111', '0'),
-(4, 'Rubayed', 'CSE', 'Associate Professor', 'abcd@gmail.com', '01987767666', 'abcd1111', '1');
+(4, 'Rubayed', 'CSE', 'Associate Professor', 'abcd@gmail.com', '01987767666', 'abcd1111', '1'),
+(5, 'Trisha Sarkar', 'Exam Control Office', 'Employee', 'trisha@gmail.com', '01567777773', 'trisha1234', '2');
 
 --
 -- Indexes for dumped tables
@@ -171,7 +173,7 @@ ALTER TABLE `teacher`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `user_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
