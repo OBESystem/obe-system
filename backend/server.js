@@ -24,6 +24,7 @@ const db = mysql.createConnection({
     database: "obes"
 })
 
+//User part
 const verifyUser = (req, res, next) => {
     const token = req.cookies.token;
     if(!token){
@@ -48,9 +49,68 @@ const verifyUser = (req, res, next) => {
     }
 }
 
+app.post('/SignUp', (req, res)=> {
+    const sql = "INSERT INTO user (`name`, `department`, `designation`, `email`, `phoneNumber`, `password`, `userType`) values (?)";
+    const values = [
+        req.body.name,
+        req.body.dept,
+        req.body.designation,
+        req.body.email,
+        req.body.phoneNumber,
+        req.body.password,
+        0
+    ];
+
+    db.query(sql, [values], (err, data)=> {
+        if(err){
+            return res.json("Error");
+        }
+        return res.json(data);
+    })
+})
+
+app.post('/Login', (req, res)=> {
+    const sql = "SELECT * FROM user WHERE `email` = ?";
+    db.query(sql, [req.body.email], (err, data)=> {
+    if(err){
+         return res.json("Error");
+    }
+    if(data.length == 0)
+    {
+        return res.json("Incorrect email!!");
+    }
+    else
+    {
+        var str = JSON.stringify(req.body.password);
+        var len = str.length;
+        str = str.slice(2, len -2);
+        if(data[0].password === str)
+        {
+            const user_id = data[0].user_id;
+            const name = data[0].name;
+            const designation = data[0].designation;
+            const userType = data[0].userType;
+            const dept = data[0].department;
+            const token = jwt.sign({ user_id, name, userType, dept, designation },"jsonwebtoken-secret-key", {expiresIn: '1d'});
+            res.cookie('token', token);
+            return res.json(userType);
+        }
+        else
+        {
+            return res.json("Incorrect password!!");
+        }
+    }
+    }) 
+})
+
+app.get('/logout', (req,res) => {
+    res.clearCookie('token');
+    return res.json({Status: "Success"});
+})
+
 //Teacher Part
 app.get('/TeacherDashboard', verifyUser, (req, res) => {
-    return res.json({Status: "Success", user_id: req.user_id, name: req.name, id: req.user_id, dept: req.dept, designation: req.designation});
+    return res.json({Status: "Success", user_id: req.user_id, name: req.name, dept: req.dept, designation: req.designation});
 })
 
 app.get('/CourseInfo', (req, res) => {
@@ -151,64 +211,54 @@ app.get('/ApplySearchForECO', (req, res) => {
     })
 })
 
-app.post('/SignUp', (req, res)=> {
-    const sql = "INSERT INTO user (`name`, `department`, `designation`, `email`, `phoneNumber`, `password`, `userType`) values (?)";
-    const values = [
-        req.body.name,
-        req.body.dept,
-        req.body.designation,
-        req.body.email,
-        req.body.phoneNumber,
-        req.body.password,
-        0
-    ];
+//Department Admin Part
+app.get('/AdminDashboard', verifyUser, (req, res) => {
+    return res.json({Status: "Success", user_id: req.user_id, name: req.name, dept: req.dept, designation: req.designation});
+})
 
-    db.query(sql, [values], (err, data)=> {
-        if(err){
-            return res.json("Error");
+app.get('/TeacherInfo', (req, res) => {
+    const sql = "SELECT * FROM user WHERE `department` = ? AND `userType` = ?";
+
+    db.query(sql, [req.query.dept,'0'], (err, result)=> {
+        if(err)
+        {
+            return res.json("Error..");
         }
-        return res.json(data);
+        return res.json(result);
     })
 })
 
-app.post('/Login', (req, res)=> {
-    const sql = "SELECT * FROM user WHERE `email` = ?";
-    db.query(sql, [req.body.email], (err, data)=> {
-    if(err){
-         return res.json("Error");
-    }
-    if(data.length == 0)
-    {
-        return res.json("Incorrect email!!");
-    }
-    else
-    {
-        var str = JSON.stringify(req.body.password);
-        var len = str.length;
-        str = str.slice(2, len -2);
-        if(data[0].password === str)
-        {
-            const user_id = data[0].user_id;
-            const name = data[0].name;
-            const designation = data[0].designation;
-            const userType = data[0].userType;
-            const dept = data[0].department;
-            const token = jwt.sign({ user_id, name, userType, dept, designation },"jsonwebtoken-secret-key", {expiresIn: '1d'});
-            res.cookie('token', token);
-            return res.json(userType);
+app.post('/ApproveUser', (req, res)=> {
+    const sql = "UPDATE user SET `userType`= ? WHERE `user_id` = ?";
+
+    db.query(sql, ['1', req.body.user_id], (err, data)=> {
+        if(err){
+            return res.json("Error");
         }
-        else
-        {
-            return res.json("Incorrect password!!");
-        }
-    }
-    }) 
+        return res.json("Success");
+    })
 })
 
+app.post('/AddTeacher', (req, res)=> {
+    const sql = "INSERT INTO teacher (`user_id`, `name`, `department`, `designation`, `email`, `phoneNumber`, `password`) SELECT `user_id`, `name`, `department`, `designation`, `email`, `phoneNumber`, `password` FROM user WHERE `user_id` = ?";
 
-app.get('/logout', (req,res) => {
-    res.clearCookie('token');
-    return res.json({Status: "Success"});
+    db.query(sql, [req.body.user_id], (err, data)=> {
+        if(err){
+            return res.json("Error");
+        }
+        return res.json("Success");
+    })
+})
+
+app.post('/RemoveTeacher', (req, res)=> {
+    const sql = "DELETE FROM user WHERE `user_id` = ?";
+
+    db.query(sql, [req.body.user_id], (err, data)=> {
+        if(err){
+            return res.json("Error");
+        }
+        return res.json("Success");
+    })
 })
 
 app.listen(7000, ()=> {
