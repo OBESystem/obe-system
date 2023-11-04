@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 03, 2023 at 06:18 PM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Generation Time: Nov 04, 2023 at 05:50 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,16 +32,15 @@ CREATE TABLE `assignment` (
   `examYear` varchar(100) NOT NULL,
   `agnID` varchar(100) NOT NULL,
   `title` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `assignment`
 --
 
 INSERT INTO `assignment` (`courseCode`, `examYear`, `agnID`, `title`) VALUES
-('CSE-162', '2022', '1', ''),
-('CSE-162', '2022', '2', ''),
-('CSE-304', '2022', '1', '');
+('CSE-304', '2022', '1', ''),
+('CSE-304', '2022', '2', '');
 
 -- --------------------------------------------------------
 
@@ -53,16 +52,15 @@ CREATE TABLE `classtests` (
   `courseCode` varchar(100) NOT NULL,
   `examYear` varchar(100) NOT NULL,
   `ctID` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `classtests`
 --
 
 INSERT INTO `classtests` (`courseCode`, `examYear`, `ctID`) VALUES
-('CSE-162', '2022', '1'),
-('CSE-162', '2022', '2'),
-('CSE-162', '2022', '3'),
+('CSE-304', '2022', '1'),
+('CSE-304', '2022', '2'),
 ('CSE-304', '2022', '1');
 
 -- --------------------------------------------------------
@@ -82,7 +80,7 @@ CREATE TABLE `coursetable` (
   `examYear` varchar(100) NOT NULL,
   `credit` int(100) NOT NULL,
   `isCourseFileSubmitted` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `coursetable`
@@ -116,16 +114,25 @@ CREATE TABLE `teacher` (
   `designation` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `phoneNumber` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `password` varchar(100) NOT NULL,
+  `noOfAssignedCourses` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `teacher`
 --
 
-INSERT INTO `teacher` (`t_id`, `user_id`, `name`, `department`, `designation`, `email`, `phoneNumber`, `password`) VALUES
-(1, 3, 'Subarna Saha', 'CSE', 'Lecturer', 'subarna@gmail.com', '01675564345', 'subarna1234'),
-(2, 4, 'Rubayed', 'CSE', 'Associate Professor', 'rubayed@gmail.com', '01987767666', 'rubayed1234');
+INSERT INTO `teacher` (`t_id`, `user_id`, `name`, `department`, `designation`, `email`, `phoneNumber`, `password`, `noOfAssignedCourses`) VALUES
+(1, 3, 'Dr. Abu Sayed Md. Mostafizur Rahaman', 'CSE', 'Professor', 'asmmr@gmail.com', '01675564345', 'asmmr1234', '2'),
+(2, 4, 'Dr. Md. Golam Moazzam', 'CSE', 'Professor', 'gm@gmail.com', '01987767666', 'gm1234', '1'),
+(3, 16, 'Anup Majumder', 'CSE', 'Assistant Professor', 'anup@gmail.com', '01725228874', 'anup1234', '0'),
+(4, 17, 'Dr. Jugal Krishna Das', 'CSE', 'Professor', 'jkd@gmail.com', '01725228874', 'jkd1234', '0'),
+(5, 18, 'Dr. Mohammad Shorif Uddin', 'CSE', 'Professor', 'su@gmail.com', '01725228874', 'su1234', '0'),
+(6, 19, 'Dr. Mohammad Zahidur Rahman', 'CSE', 'Professor', 'mzr@gmail.com', '01999999456', 'mzr1234', '0'),
+(7, 20, 'Dr. Md. Imdadul Islam', 'CSE', 'Professor', 'ii@gmail.com', '01725228874', 'ii1234', '0'),
+(8, 25, 'Bulbul Ahammad', 'CSE', 'Assistant Professor', 'ba@gmail.com', '01725228874', 'ba1234', '0'),
+(9, 21, 'Mohammad Ashraful Islam', 'CSE', 'Assistant Professor', 'mai@gmail.com', '01725228874', 'mai1234', '0'),
+(10, 23, 'Nadia Afrin Ritu', 'CSE', 'Lecturer', 'nar@gmail.com', '01999999456', 'nar1234', '0');
 
 -- --------------------------------------------------------
 
@@ -142,26 +149,33 @@ CREATE TABLE `user` (
   `phoneNumber` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `userType` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`user_id`, `name`, `department`, `designation`, `email`, `phoneNumber`, `password`, `userType`) VALUES
-(3, 'Subarna Saha', 'CSE', 'Lecturer', 'subarna@gmail.com', '01675564345', 'subarna1234', '1'),
-(4, 'Rubayed', 'CSE', 'Associate Professor', 'rubayed@gmail.com', '01987767666', 'rubayed1234', '2'),
-(5, 'Trisha Sarkar', 'Exam Control Office', 'Employee', 'trisha@gmail.com', '01567777773', 'trisha1234', '3'),
-(6, 'Rahim Islam', 'CSE', 'Lecturer', 'rahim@gmail.com', '01999999456', 'rahim1111', '0'),
+(3, 'Dr. Abu Sayed Md. Mostafizur Rahaman', 'CSE', 'Professor', 'asmmr@gmail.com', '01675564345', 'asmmr1234', '1'),
+(4, 'Dr. Md. Golam Moazzam', 'CSE', 'Professor', 'gm@gmail.com', '01987767666', 'gm1234', '2'),
+(5, 'Abdul Majid', 'Exam Control Office', 'Employee', 'majid@gmail.com', '01567777773', 'majid1234', '3'),
 (7, 'Rai', 'English', 'Lecturer', 'rai1@gmail.com', '01799136578', 'rai123', '0'),
 (8, 'Arjun', 'Exam Control Office', 'Employee', 'arjun02@gmail.com', '01842809101', 'arjun101', '0'),
 (9, 'Shree', 'Economics', 'Professor', 'shree59@gmail.com', '01715809101', 'shree23', '0'),
 (10, 'Sornali', 'Microbiology', 'Professor', 'sornali34@gmail.com', '01789654567', 'sornali18', '0'),
 (11, 'Malati', 'Botany', 'Lecturer', 'malati3@gmail.com', '01799234567', 'malati24', '0'),
 (12, 'Aditto', 'English', 'Lecturer', 'adi2@gmail.com', '01789654324', 'adi23', '0'),
-(13, 'Mahiyat', 'CSE', 'Associate Professor', 'mahiyat@gmail.com', '01768945367', 'mahiyat27', '0'),
 (14, 'Setu', 'Zoology', 'Employee', 'setu19@gmail.com', '01345748493', 'setu89', '0'),
-(15, 'kygnog', 'CSE', 'oiupom', 'defg@gmail.com', '01999999999', 'ytcbiy', '0');
+(16, 'Anup Majumder', 'CSE', 'Assistant Professor', 'anup@gmail.com', '01725228874', 'anup1234', '1'),
+(17, 'Dr. Jugal Krishna Das', 'CSE', 'Professor', 'jkd@gmail.com', '01725228874', 'jkd1234', '1'),
+(18, 'Dr. Mohammad Shorif Uddin', 'CSE', 'Professor', 'su@gmail.com', '01725228874', 'su1234', '1'),
+(19, 'Dr. Mohammad Zahidur Rahman', 'CSE', 'Professor', 'mzr@gmail.com', '01999999456', 'mzr1234', '1'),
+(20, 'Dr. Md. Imdadul Islam', 'CSE', 'Professor', 'ii@gmail.com', '01725228874', 'ii1234', '1'),
+(21, 'Mohammad Ashraful Islam', 'CSE', 'Assistant Professor', 'mai@gmail.com', '01725228874', 'mai1234', '1'),
+(22, 'Md. Masum Bhuiyan', 'CSE', 'Lecturer', 'mb@gmail.com', '01725228874', 'mb1234', '0'),
+(23, 'Nadia Afrin Ritu', 'CSE', 'Lecturer', 'nar@gmail.com', '01999999456', 'nar1234', '1'),
+(24, 'Samsun Nahar Khandakar', 'CSE', 'Lecturer', 'snk@gmail.com', '01725228874', 'snk1234', '0'),
+(25, 'Bulbul Ahammad', 'CSE', 'Assistant Professor', 'ba@gmail.com', '01725228874', 'ba1234', '1');
 
 --
 -- Indexes for dumped tables
@@ -187,13 +201,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `teacher`
 --
 ALTER TABLE `teacher`
-  MODIFY `t_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `t_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `user_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
