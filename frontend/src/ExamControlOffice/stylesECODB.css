@@ -1,0 +1,100 @@
+.sidebarECOList:hover{
+    background-color: rgb(3, 96, 133) !important;
+    color: white;
+    cursor: pointer;
+}
+
+.cntE{
+    font-family: 'Roboto', sans-serif;
+    background-image: linear-gradient(rgb(194, 192, 192),rgb(138, 210, 238),rgb(100, 197, 235), rgb(10, 129, 177)) !important;
+}
+
+
+.sBar{
+    background-color: rgb(100, 169, 235);
+}
+
+#person-circle-ECO{
+    color: rgb(3, 96, 133);
+    font-size: 8rem !important;
+}
+
+.nvECO{
+    background-color: transparent !important;
+}
+
+.lButtonECO{
+    width: 300px;
+    margin-right: 20px;
+}
+
+.resetButtonECO{
+    width: 300px;
+}
+
+.containerRB{
+    text-align: right;
+}
+
+.sidebarECO{
+    position: fixed; /* Fix the sidebar's position */
+    top: 0; /* Adjust as needed to control the vertical position */
+    left: 0; /* Fix the sidebar to the left side of the screen */
+    width: 17%; /* Adjust the width as needed */
+    height: 100%; /* Fill the entire height of the viewport */
+    background-color: #fff; /* Sidebar background color */
+    overflow-y: auto; /* Enable scrolling if content exceeds the height */
+    border-right: 1px solid #ccc;
+}
+
+.dropdown-container {
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    margin-bottom: 10px;
+}
+
+
+.searchTabECOLabel{
+    flex: 1;
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+select {
+    margin-left: 10px; /* Adjust the margin as needed to separate the label and dropdown */
+}
+
+.drdwE{
+    width: 100%;
+    flex: 2;
+    font-size: 20px;
+    padding: 5px;
+    border-radius: 5px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+#searchTabECO{
+    border: 2px solid rgb(8, 139, 190);
+    padding-top:30px;
+    padding-bottom:30px;
+}
+
+.courseTableECODB{
+    overflow-y: auto;
+    height: 300px;
+}
+
+.courseTableECODB thead th {
+    position: sticky; 
+    background-color: grey !important;
+    top: 0px;
+}
+
+
+
+
+
+
+  
