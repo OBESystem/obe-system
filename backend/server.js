@@ -261,9 +261,9 @@ app.post('/RemoveTeacher', (req, res)=> {
 })
 
 app.get('/CourseInfoForAssigningCourse', (req, res) => {
-    const sql = "SELECT * FROM coursetable WHERE `department` = ? AND `t_id` = ?";
+    const sql = "SELECT * FROM coursetable WHERE `department` = ?";
 
-    db.query(sql, [req.query.department, '0'], (err, result)=> {
+    db.query(sql, [req.query.department], (err, result)=> {
         if(err)
         {
             return res.json("Error..");
@@ -308,7 +308,7 @@ app.post('/UpdateTeacherInfoForCourse', (req, res)=> {
 })
 
 app.post('/AddCourseDA', (req, res)=> {
-    const sql = "INSERT INTO coursetable (`department`, `t_id`, `courseName`, `courseCode`, `courseType`, `year`, `semester`, `examYear`, `isCourseFileSubmitted`) values (?)";
+    const sql = "INSERT INTO coursetable (`department`, `t_id`, `courseName`, `courseCode`, `courseType`, `year`, `semester`, `examYear`, `credit`, `isCourseFileSubmitted`) values (?)";
     const values = [
         req.body.department,
         req.body.t_id,
@@ -318,6 +318,7 @@ app.post('/AddCourseDA', (req, res)=> {
         req.body.year,
         req.body.semester,
         req.body.examYear,
+        req.body.credit,
         '0'
     ];
     db.query(sql, [values], (err, data)=> {
