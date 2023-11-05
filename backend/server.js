@@ -240,8 +240,7 @@ app.post('/ApproveUser', (req, res)=> {
 })
 
 app.post('/AddTeacher', (req, res)=> {
-    const sql = "INSERT INTO teacher (`user_id`, `name`, `department`, `designation`, `email`, `phoneNumber`, `password`) SELECT `user_id`, `name`, `department`, `designation`, `email`, `phoneNumber`, `password` FROM user WHERE `user_id` = ?";
-
+    const sql = "INSERT INTO teacher (`user_id`, `name`, `department`, `designation`, `email`, `phoneNumber`, `password`, `noOfAssignedCourses`) SELECT `user_id`, `name`, `department`, `designation`, `email`, `phoneNumber`, `password`, 0 FROM user WHERE `user_id` = ?";
     db.query(sql, [req.body.user_id], (err, data)=> {
         if(err){
             return res.json("Error");
@@ -254,6 +253,74 @@ app.post('/RemoveTeacher', (req, res)=> {
     const sql = "DELETE FROM user WHERE `user_id` = ?";
 
     db.query(sql, [req.body.user_id], (err, data)=> {
+        if(err){
+            return res.json("Error");
+        }
+        return res.json("Success");
+    })
+})
+
+app.get('/CourseInfoForAssigningCourse', (req, res) => {
+    const sql = "SELECT * FROM coursetable WHERE `department` = ? AND `t_id` = ?";
+
+    db.query(sql, [req.query.department, '0'], (err, result)=> {
+        if(err)
+        {
+            return res.json("Error..");
+        }
+        return res.json(result);
+    })
+})
+
+app.get('/GetApprovedTeacherList', (req, res) => {
+    const sql = "SELECT * FROM teacher WHERE `department` = ?";
+
+    db.query(sql, [req.query.department], (err, result)=> {
+        if(err)
+        {
+            return res.json("Error..");
+        }
+        return res.json(result);
+    })
+})
+
+app.post('/AssignTeacherToCourse', (req, res)=> {
+    const sql = "UPDATE courseTable SET `t_id`= ? WHERE `examYear`= ? AND `courseCode` = ?";
+
+    db.query(sql, [req.body.t_id, req.body.examYear, req.body.courseCode], (err, data)=> {
+        if(err){
+            return res.json("Error");
+        }
+        console.log(req.body.examYear+"  "+req.body.courseCode);
+        return res.json("Success");
+    })
+})
+
+app.post('/UpdateTeacherInfoForCourse', (req, res)=> {
+    const sql = "UPDATE teacher SET `noOfAssignedCourses`= `noOfAssignedCourses`+1 WHERE `t_id` = ?";
+
+    db.query(sql, [req.body.t_id], (err, data)=> {
+        if(err){
+            return res.json("Error");
+        }
+        return res.json("Success");
+    })
+})
+
+app.post('/AddCourseDA', (req, res)=> {
+    const sql = "INSERT INTO coursetable (`department`, `t_id`, `courseName`, `courseCode`, `courseType`, `year`, `semester`, `examYear`, `isCourseFileSubmitted`) values (?)";
+    const values = [
+        req.body.department,
+        req.body.t_id,
+        req.body.courseName,
+        req.body.courseCode,
+        req.body.courseType,
+        req.body.year,
+        req.body.semester,
+        req.body.examYear,
+        '0'
+    ];
+    db.query(sql, [values], (err, data)=> {
         if(err){
             return res.json("Error");
         }
