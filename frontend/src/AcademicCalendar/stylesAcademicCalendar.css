@@ -1,0 +1,19 @@
+#cntCalendar{
+    border: 6px solid rgb(12, 105, 226);
+    margin:0px;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+#AcademicCalendar{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.ifrme{
+    width: 500px;
+    height: 1000px;
+}
