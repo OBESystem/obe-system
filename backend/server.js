@@ -307,6 +307,17 @@ app.post('/UpdateTeacherInfoForCourse', (req, res)=> {
     })
 })
 
+app.post('/RemoveTeacherFromCourse', (req, res)=> {
+    const sql = "UPDATE teacher SET `noOfAssignedCourses`= `noOfAssignedCourses`-1 WHERE `t_id` = ?";
+
+    db.query(sql, [req.body.t_id], (err, data)=> {
+        if(err){
+            return res.json("Error");
+        }
+        return res.json("Success");
+    })
+})
+
 app.post('/AddCourseDA', (req, res)=> {
     const sql = "INSERT INTO coursetable (`department`, `t_id`, `courseName`, `courseCode`, `courseType`, `year`, `semester`, `examYear`, `credit`, `isCourseFileSubmitted`) values (?)";
     const values = [
