@@ -1,0 +1,38 @@
+.cntAppTe{
+    height: 100vh;
+    font-family: 'Roboto', sans-serif;
+    background-color: rgb(100, 169, 235);
+    background-image: linear-gradient(grey,rgb(48, 150, 197), rgb(8, 111, 158)) !important;
+}
+
+
+.lButton{
+    width: 300px;
+}
+
+.box{
+    font-family: 'Times New Roman', Times, serif !important;
+    font-weight: bold;
+}
+
+.sidebar{
+    position: fixed; /* Fix the sidebar's position */
+    top: 0; /* Adjust as needed to control the vertical position */
+    left: 0; /* Fix the sidebar to the left side of the screen */
+    width: 17%; /* Adjust the width as needed */
+    height: 100%; /* Fill the entire height of the viewport */
+    background-color: #fff; /* Sidebar background color */
+    overflow-y: auto; /* Enable scrolling if content exceeds the height */
+    border-right: 1px solid #ccc;
+}
+
+.teacherTableForApproval{
+    overflow-y: auto;
+    height: 300px;
+}
+
+.teacherTableForApproval thead th {
+    position: sticky; 
+    background-color: rgb(43, 139, 184) !important;
+    top: 0px;
+}
