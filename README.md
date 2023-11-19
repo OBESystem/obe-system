@@ -1,7 +1,7 @@
 # obe-system
 need to run both backend and frontend together
 
-install bootstrap, react, react-dom, react-router-dom, axios, jquery into frontend folder
+install bootstrap, react, react-dom, react-router-dom, axios, @reduxjs/toolkit react-redux into frontend folder
 
 install mysql, express, cors, nodemon, cookie-parser,  jsonwebtoken into backend folder
 
