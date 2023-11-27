@@ -12,6 +12,8 @@ python -m venv myenv
 & .\myenv\Scripts\activate
 pip install -r requirements.txt
 
+REPLACE the file myenv/Lib/django/core/mail/backends/smtp.py with the code in the link : https://github.com/django/django/blob/main/django/core/mail/backends/smtp.py
+
 **Install Python extension and select the python.exe of myenv as python interpreter
 In VScode : View -> Command Paletter -> Select Interpreter -> Enter interpreter path
 
