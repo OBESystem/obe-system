@@ -15,7 +15,7 @@ pip install -r requirements.txt
 **Install Python extension and select the python.exe of myenv as python interpreter
 In VScode : View -> Command Paletter -> Select Interpreter -> Enter interpreter path
 
-**Intall SQLite Viewer to see the database file
+**Install SQLite Viewer to see the database file
 
 Commands:
 python manage.py makemigrations
