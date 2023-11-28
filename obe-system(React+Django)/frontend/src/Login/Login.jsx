@@ -112,6 +112,13 @@ function Login() {
                         </div>
                       )}
                     </div>
+                    {serverErrors.non_field_errors && (
+                        <div className="row inputDiv">
+                          <div className="form-check">
+                            <label className="form-check-label text-danger fs-6">{serverErrors.non_field_errors[0]}!!</label>
+                          </div>
+                      </div>
+                    )}
                     <div className="row bn">
                       <button type="reset" className="buttons" id="reset" onClick={handleReset}>Reset</button>
                       <button type="submit" className="buttons" id="submit">Submit</button>
