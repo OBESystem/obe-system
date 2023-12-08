@@ -1,0 +1,17 @@
+#wel{
+    border:  6px solid rgb(12, 105, 226);
+    margin:0px;
+    font-family: 'Roboto', sans-serif;
+}
+
+#welcomeDiv{
+    font-weight: bold;
+    font-size: 30px;
+    padding-top: 10%;
+    padding-bottom: 15%;
+    color: rgb(1, 1, 75);
+}
+
+#WelcomePagebtn{
+    margin-top:30px;
+}
