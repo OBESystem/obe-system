@@ -1,6 +1,8 @@
 from django.urls import path, include
 from rest_framework.urlpatterns import format_suffix_patterns
-from course.views import AddCourseView, GetCourseListView, AddAssignmentView, GetAssignmentListView,UpdateAssignmentView,UpdateAssignmentPDFView,GetAssignmentView,AddClass_testView,GetClass_testListView,GetClass_testView, UpdateClass_testView,CreateFinal_examView, GetFinalExamView, UpdateFinal_examView, SubmitCourseFileView
+from course.views import (AddCourseView, GetCourseListView, AddAssignmentView, GetAssignmentListView,UpdateAssignmentView,UpdateAssignmentPDFView,GetAssignmentView,
+    AddClass_testView,GetClass_testListView,GetClass_testView, UpdateClass_testView,CreateFinal_examView, GetFinalExamView, UpdateFinal_examView, SubmitCourseFileView, 
+    FilterCourseListView)
 
 urlpatterns = [
     path('add-course/', AddCourseView.as_view(),name='add_courses'),
@@ -18,5 +20,5 @@ urlpatterns = [
     path('get-final-exam/<course_code>/<exam_year>/', GetFinalExamView.as_view(),name='get_final_exam'),
     path('update-final-exam/', UpdateFinal_examView.as_view(),name='update_final_exam'),
     path('submit-course-file/', SubmitCourseFileView.as_view(),name='submit_course_file'),
+    path('filter-courses/<department>/<exam_year>/<year>/<semester>/', FilterCourseListView.as_view(),name='filter_courses'),
 ]
-

@@ -189,4 +189,40 @@ class SubmitCourseFileView(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
+    
+class FilterCourseListView(APIView):
+    def get(self, request, department, exam_year, year, semester, format=None):
+        if (department != 'null') and (exam_year != 'null') and (year != 'null') and (semester != 'null'):
+            Courses = Course.objects.filter(department=department, exam_year=exam_year, year=year, semester=semester)
+        elif (department != 'null') and (exam_year != 'null') and (year != 'null'):
+            Courses = Course.objects.filter(department=department, exam_year=exam_year, year=year)
+        elif (department != 'null') and (exam_year != 'null') and (semester != 'null'):
+            Courses = Course.objects.filter(department=department, exam_year=exam_year, semester=semester)
+        elif (department != 'null') and (year != 'null') and (semester != 'null'):
+            Courses = Course.objects.filter(department=department, year=year, semester=semester)
+        elif (exam_year != 'null') and (year != 'null') and (semester != 'null'):
+            Courses = Course.objects.filter(exam_year=exam_year, year=year, semester=semester)
+        elif (department != 'null') and (exam_year != 'null'):
+            Courses = Course.objects.filter(department=department, exam_year=exam_year)
+        elif (department != 'null') and (year != 'null'):
+            Courses = Course.objects.filter(department=department, year=year)
+        elif (department != 'null') and (semester != 'null'):
+            Courses = Course.objects.filter(department=department, semester=semester)
+        elif (exam_year != 'null') and (year != 'null'):
+            Courses = Course.objects.filter(exam_year=exam_year, year=year)
+        elif (exam_year != 'null') and (semester != 'null'):
+            Courses = Course.objects.filter(exam_year=exam_year, semester=semester)
+        elif (year != 'null') and (semester != 'null'):
+            Courses = Course.objects.filter(year=year, semester=semester)
+        elif (department != 'null'):
+            Courses = Course.objects.filter(department=department)
+        elif (exam_year != 'null'):
+            Courses = Course.objects.filter(exam_year=exam_year)
+        elif (year != 'null'):
+            Courses = Course.objects.filter(year=year)
+        elif (semester != 'null'):
+            Courses = Course.objects.filter(semester=semester)
+        else:
+            Courses = Course.objects.all()
+        serializer = CourseSerializer(Courses, many=True)
+        return Response(serializer.data)
