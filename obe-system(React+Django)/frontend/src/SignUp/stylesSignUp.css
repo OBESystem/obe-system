@@ -1,0 +1,107 @@
+#snUp{
+    border: 5px solid rgb(12, 105, 226);
+    border-radius : 6px;
+    margin:0px;
+    font-family: 'Roboto', sans-serif;
+}
+.nv1{
+    height: 150px !important;
+    background-image:  linear-gradient(white, rgb(12, 105, 226)) ;
+}
+
+#logo1{
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+}
+
+#title{
+    color: white;
+}
+
+#signUp-form{
+    margin-top:30px;
+    margin-bottom:40px;
+    padding-bottom:40px;
+    border: 2px solid rgb(3, 64, 145);
+    padding-top: 5%;
+    font-family: arial;
+    font-weight: bold;
+}
+
+.text{
+    margin-left: 30%;
+    margin-bottom: 0px;
+}
+
+.inputDiv{
+    margin-bottom: 10px;
+}
+.buttons{
+    color: rgb(189, 208, 231);
+    width: 100px;
+    height: 50px;
+    border: 4px solid rgb(3, 64, 145);
+    background-color: rgb(5, 112, 252);
+    color:white !important;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.buttons:hover{
+    background-color: rgb(3, 64, 145);
+}
+
+#teacher{
+    margin-top: 20px;
+}
+
+.err{
+    font-size: 12px;
+    color: red;
+    margin-top: 0px;
+    margin-bottom:0px;
+}
+
+#footer{
+    width: 100%;
+    height: 10vh;
+    text-align: center;
+    color: grey;
+}
+
+hr{
+    width: 90%;
+}
+@media screen and (max-width: 990px) {
+   
+    #title{
+        font-size:22px;
+    }
+    #quote{
+        width: 100%;
+        height: 10vh;
+        font-size: 20px;
+    }
+  }
+
+@media screen and (min-width: 1500px) {
+   
+    .text{
+        margin-left: 40%;
+    }
+}
+ 
+#blankDivSU{
+    background-color: red;
+    height:200px;
+}
+
+#footerSU{
+    width: 100%;
+    height: 10vh;
+    text-align: center;
+    color: grey;
+    bottom:0;
+}
