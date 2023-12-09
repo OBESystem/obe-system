@@ -32,5 +32,5 @@ class UserModelAdmin(BaseUserAdmin):
 admin.site.register(User, UserModelAdmin)
 
 #admin account:
-#subarna@gmail.com
-#123456789abcd
+#admin@gmail.com
+#admin123456789
