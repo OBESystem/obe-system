@@ -1,0 +1,65 @@
+.list-group a:hover{
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+}
+
+.cnt{
+    font-family: 'Roboto', sans-serif;
+    background-color: rgb(100, 169, 235);
+    background-image: linear-gradient(grey,rgb(100, 169, 235), rgb(36, 51, 180)) !important;
+}
+
+
+.sBar{
+    background-color: rgb(100, 169, 235);
+}
+
+.largeIcon{
+    font-size: 8rem !important;
+    color: rgb(9, 63, 243);
+}
+
+.nvTeacher{
+    background-color: transparent !important;
+}
+
+.lButton{
+    width: 300px;
+}
+
+.box{
+    font-family: 'Times New Roman', Times, serif !important;
+    font-weight: bold;
+}
+
+.sidebar{
+    position: fixed; /* Fix the sidebar's position */
+    top: 0; /* Adjust as needed to control the vertical position */
+    left: 0; /* Fix the sidebar to the left side of the screen */
+    width: 17%; /* Adjust the width as needed */
+    height: 100%; /* Fill the entire height of the viewport */
+    background-color: #fff; /* Sidebar background color */
+    overflow-y: auto; /* Enable scrolling if content exceeds the height */
+    border-right: 1px solid #ccc;
+}
+
+#navTitleTeacher{
+    font-size: 23px;
+    color: rgb(77, 77, 77);
+}
+
+#ppDiv{
+    margin-bottom: 10px;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 200px;
+    height: 200px;
+}
+
+#profilePicture{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+  
