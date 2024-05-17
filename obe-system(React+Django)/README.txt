@@ -6,7 +6,7 @@ npm install bootstrap, react, react-dom, react-router-dom, axios, @reduxjs/toolk
 npm start(Command)
 
 Backend(Django)
-INSTALL Python AT FIRST
+INSTALL Python==3.12.0 AT FIRST
 Check existence of pyhton and pip by ( python --version and pip --version)
 
 python -m venv myenv(Command)
