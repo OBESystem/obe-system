@@ -344,8 +344,7 @@ function CreateExam() {
                                     <td>{course.course_type}</td>
                                     <td>{course.credit}</td>
                                     <td>
-                                    {course.id!=='0' ? <button className="btn btn-danger disabled">Delete</button>
-                                      : <button className="btn btn-danger" onClick={() => {DeleteCourse(index);}}>Delete</button>}
+                                    <button className="btn btn-danger" onClick={() => {DeleteCourse(index);}}>Delete</button>
                                     </td>
                                   </tr>
                                 );
