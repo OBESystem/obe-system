@@ -1,6 +1,18 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { removeToken } from '../services/LocalStorageService'
+import { unsetUserToken} from '../features/authSlice';
+import { useDispatch } from 'react-redux';
 
 function NavTeacher(props) {
+    const dispatch = useDispatch()
+    const navigate = useNavigate();
+    const handleLogout = () => {
+        navigate('/');
+        dispatch(unsetUserToken({access_token : null}))
+        removeToken();
+    }
+    
   return (
     <nav className="navbar navbar-expand-sm navbar-dark nvTeacher">
         <i className="navbar-brand bi bi-justify-left fs-4" onClick={props.Toggle}></i>
@@ -16,8 +28,7 @@ function NavTeacher(props) {
                         {props.name}
                     </a>
                     <div className="dropdown-menu" aria-labelledby="dropdownId">
-                        <a className="dropdown-item">Profile</a>
-                        <a className="dropdown-item">Settings</a>
+                        <a className="dropdown-item"  onClick={handleLogout}>Logout</a>
                     </div>
                 </li>
             </ul>
