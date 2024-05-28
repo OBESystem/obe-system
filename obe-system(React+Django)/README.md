@@ -1,30 +1,118 @@
-Frontend(React):
+# Project Setup Guide
 
-npx create-react-app frontend(Command)
-Replace all the folders except node_modules
-npm install bootstrap, react, react-dom, react-router-dom, axios, @reduxjs/toolkit react-redux(Command)
-npm start(Command)
+This guide will help you set up and run both the frontend (React) and backend (Django) for the project.
 
-Backend(Django)
-INSTALL Python==3.12.0 AT FIRST
-Check existence of pyhton and pip by ( python --version and pip --version)
+## Frontend (React)
 
-python -m venv myenv(Command)
-& .\myenv\Scripts\activate(Command)
-pip install -r requirements.txt(Command)
+### Prerequisites
+- Node.js installed
 
-REPLACE the file myenv/Lib/site-packages/django/core/mail/backends/smtp.py with the code in the link : https://github.com/django/django/blob/main/django/core/mail/backends/smtp.py
+### Setup
 
-**Install Python extension and select the python.exe of myenv as python interpreter
-In VScode : View -> Command Palette-> Select Interpreter -> Enter interpreter path
+1. Create a new React application:
 
-**Install SQLite Viewer to see the database file
+    ```sh
+    npx create-react-app frontend
+    ```
 
-python manage.py makemigrations(Command)
-python manage.py migrate(Command)
-python manage.py runserver(Command)
+2. Replace all the folders in the `frontend` directory except for `node_modules`.
 
-To create a project, use the command ( django-admin startproject project_name )
+3. Install necessary packages:
 
-***NEED TO RUN BOTH frontend and backend together
+    ```sh
+    npm install bootstrap react react-dom react-router-dom axios @reduxjs/toolkit react-redux
+    ```
 
+4. Start the React application:
+
+    ```sh
+    npm start
+    ```
+
+## Backend (Django)
+
+### Prerequisites
+- Python 3.12.0 installed
+
+### Setup
+
+1. Check the existence of Python and pip:
+
+    ```sh
+    python --version
+    pip --version
+    ```
+
+2. Create a virtual environment:
+
+    ```sh
+    python -m venv myenv
+    ```
+
+3. Activate the virtual environment:
+
+    - For Windows:
+
+        ```sh
+        .\myenv\Scripts\activate
+        ```
+
+    - For macOS/Linux:
+
+        ```sh
+        source myenv/bin/activate
+        ```
+
+4. Install the required packages from `requirements.txt`:
+
+    ```sh
+    pip install -r requirements.txt
+    ```
+
+5. Replace the file `myenv/Lib/site-packages/django/core/mail/backends/smtp.py` with the code from the following link:
+
+    [Django SMTP Backend](https://github.com/django/django/blob/main/django/core/mail/backends/smtp.py)
+
+### VSCode Configuration
+
+1. Install the Python extension in VSCode.
+
+2. Select the Python interpreter for the virtual environment:
+    - Open Command Palette (View -> Command Palette).
+    - Select `Python: Select Interpreter`.
+    - Enter the path to the interpreter: `myenv/Scripts/python.exe`.
+
+3. Install SQLite Viewer to view the database file.
+
+### Database Setup
+
+1. Create database migrations:
+
+    ```sh
+    python manage.py makemigrations
+    ```
+
+2. Apply the migrations:
+
+    ```sh
+    python manage.py migrate
+    ```
+
+### Running the Server
+
+1. Start the Django development server:
+
+    ```sh
+    python manage.py runserver
+    ```
+
+### Creating a New Django Project
+
+To create a new Django project, use the following command:
+
+```sh
+django-admin startproject project_name
+```
+
+
+This `README.md` file includes all the necessary steps for setting up and running the frontend and backend for your project. Make sure to replace placeholders and adjust paths as needed based on your project's specific configuration and structure.
